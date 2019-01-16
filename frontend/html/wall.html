@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<link href="../css/logged-in-style.css" rel="stylesheet">
+	<script src="../js/feedWall.js"></script>
+
+</head>
+
+<body id="wall">
+	<header>
+		<form class="text-left-search">
+			<input type="search" placeholder="Search">
+		</form>
+		<div class="menu-icon"><a href="#setting">Setting</a>
+		</div>
+		<div class="menu-icon second-icon"><a href="#notifaction">Notifaction</a>
+		</div>
+		<div class="menu-icon second-icon"><a href="profile.html">Profile</a>
+		</div>
+		<div class="menu-icon second-icon"><a href="wall.html">Wall</a>
+		</div>
+		<div class="menu-icon second-icon"><a href="feed.html">Feed</a>
+		</div>
+		<div class="menu-icon second-icon"><a href="index.html">Log out</a>
+		</div>
+	</header>
+	<div class="sidebar-nav">
+		<a href="profile.html" title="Profile">
+			<img src="../imgs/user1.jpg" alt="User name" class="img-profile">
+		</a>
+		<h2 class="text-center">
+			<a href="personal-profile.html" title="Profile">My User</a>
+		</h2>
+		<p class="text-center">
+			<i>user status / description</i>
+		</p>
+	</div>
+	<div id="new-post-div">
+		<div class="primary-content">
+			<form id="new-post-form">
+				<input type="file" value="photo/video">
+				<textarea placeholder="write new post" name="" id="new-post-text" cols="80" rows="10"></textarea>
+				<button type="button" id="new-post-btn">Post</button>
+			</form>
+		</div>
+	</div>
+	<div id="sort-posts-div">
+		<span id="sort-span">Sort by:</span>
+		<select name="lol" id="sort-by">
+			<option value="date">Date</option>
+			<option value="video">Videos first</option>
+			<option value="shuffle">Shuffle</option>
+		</select>
+	</div>
+	<div class="content-posts" id="posts">
+
+		<div class="primary-content">
+			<div id="posts-container" class="container-posts">
+				<div class="card-post">
+					<div class="row">
+						<div class="col-sm-2">
+							<a href="user-profile.html" title="User Profile">
+								<img src="../imgs/user1.jpg" alt="User name" class="img-circle img-user">
+							</a>
+						</div>
+						<div class="col-sm-10">
+							<h3><a href="user-profile.html" title="User Profile">My User</a></h3>
+							<p><i>2h</i></p>
+						</div>
+					</div>
+					<hr>
+					<div class="row">
+						<div class="col-sm-8 col-sm-offset-2 data-post">
+							<p>post text bla bla bla bla post text bla bla bla blapost text bla bla bla blapost text bla bla bla blapost text bla bla bla blapost text bla bla bla bla</p>
+							<div class="likes">
+								<img draggable="false" class="emoji" src="https://twemoji.maxcdn.com/16x16/2764.png"> 156 <img draggable="false" class="emoji" src="https://twemoji.maxcdn.com/16x16/1f603.png"> 54
+							</div>
+							<div class="comments">
+								<div class="more-comments">View more comments</div>
+								<ul>
+									<li><b>User1</b> Lorem Ipsum Dolor si amet</li>
+									<li><b>User2</b> Lorem Ipsum Dolor si amet <img draggable="false" class="emoji" alt="😂" src="https://twemoji.maxcdn.com/16x16/1f602.png"></li>
+								</ul>
+								<form>
+									<input type="text" class="form-control" placeholder="Add a comment">
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card-post">
+					<div class="row">
+						<div class="col-sm-2">
+							<a href="user-profile.html" title="User Profile">
+								<img src="../imgs/user2.jpg" alt="User name" class="img-circle img-user">
+							</a>
+						</div>
+						<div class="col-sm-10">
+							<h3><a href="user-profile.html" title="User Profile">User Name</a></h3>
+							<p><i>5h</i></p>
+						</div>
+					</div>
+					<hr>
+					<div class="row">
+						<div class=" col-sm-8 col-sm-offset-2 data-post">
+							<p>another post content blabablablablalbbalballablablaallblabla</p>
+							<img src="../imgs/user2.jpg" alt="image post" class="img-post">
+							<div class="likes">
+								<img draggable="false" class="emoji" alt="❤" src="https://twemoji.maxcdn.com/16x16/2764.png"> 1234 <img draggable="false" class="emoji" alt="😃" src="https://twemoji.maxcdn.com/16x16/1f603.png"> 54
+							</div>
+							<div class="comments">
+								<div class="more-comments">View more comments</div>
+								<ul>
+									<li><b>User1</b> Lorem Ipsum Dolor si amet</li>
+									<li><b>User2</b> Lorem Ipsum Dolor si amet <img draggable="false" class="emoji" alt="😂" src="https://twemoji.maxcdn.com/16x16/1f602.png"></li>
+								</ul>
+								<form>
+									<input type="text" class="form-control" placeholder="Add a comment">
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		document.getElementById("new-post-btn").onclick = function() {
+			var txt = document.getElementById("new-post-text").value;
+			var post = document.querySelector(".card-post");
+			var postClone = post.cloneNode(true);
+
+			postClone.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.firstElementChild.innerHTML = txt;
+			document.getElementById("posts-container").prepend(postClone);
+			console.log(postClone.querySelector("p"));
+			var _docHeight = (document.height !== undefined) ? document.height : document.body.offsetHeight;
+			console.log(_docHeight);
+
+		}
+
+	</script>
+
+</body>
+
+</html>

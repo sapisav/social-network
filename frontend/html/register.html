@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<link href="../css/styles.css" rel="stylesheet">
+	
+</head>
+
+<body id="register">
+	<nav>
+		<ul class="nav-ul">
+			<li id="left-li"><a href="#">LANGUAGE</a></li>
+			<li><a href="#">TERMS</a></li>
+			<li><a href="#">POLICY</a></li>
+			<li><a href="#">CONTACT</a></li>
+		</ul>
+	</nav>
+	<div class="register-div">
+		<div class="logo-div">
+			<div>
+				<h1>LOGO</h1>
+			</div>
+			<div>
+				<h4 id="err">hidden</h4> 
+			</div>
+		</div>
+		<form>
+			<input id="em1" class="inputs" type="email" placeholder="Email" required>
+			<input id="em2" class="inputs" type="email" placeholder="Validate Email" required>
+			<input id="pw1" class="inputs" type="password" placeholder="Password" min="4" max="12" required>
+			<input id="pw2" class="inputs" type="password" placeholder="Validate Password" min="4" max="12" required>
+
+						<input class="inputs" type="submit" value="SIGN UP">
+<!--			<button id="btn" class="inputs" type="button"> Register </button>-->
+		</form>
+		<a href="index.html">have acc?</a>
+	</div>
+	<script src="../js/register.js"></script>
+<!--
+	<script>
+		var em1 = document.getElementById("em1");
+		var em2 = document.getElementById("em2");
+		var pw1 = document.getElementById("pw1");
+		var pw2 = document.getElementById("pw2");
+		var errMsg = document.getElementById("err");
+		
+		//some js validation
+		document.getElementById("btn").onclick = function() {
+
+			if (em1.value != em2.value) {
+				errMsg.innerHTML = "email does not match";
+				errMsg.style.display = 'block';
+				
+			}
+			else if (pw1.value != pw2.value) {
+				errMsg.innerHTML = "password does not match";
+				errMsg.style.display = 'block';
+			}
+			else {
+				errMsg.style.display = 'none';
+			}
+
+
+		}
+
+		//		document.getElementById("btn").onclick =  function () {
+		//			console.log("json");
+		//			var userName = new Object();
+		//			userName.user = document.getElementById("user-name").value;
+		//			userName.password = document.getElementById("password").value;
+		//			var json = JSON.stringify(userName);
+		//
+		//			var fs = require('fs');
+		//			fs.writeFile('/json/users.json', json, 'utf8', callback);
+		//			console.log(json);
+		//		}
+	</script>
+-->
+</body>
+</html>
