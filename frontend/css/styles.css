@@ -118,6 +118,10 @@ input[type="submit"] {
 	margin-left: 10px;
 }
 
+.alert {
+	display: none;
+}
+
 
 
 /*####### feed #########*/

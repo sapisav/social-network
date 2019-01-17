@@ -1,7 +1,7 @@
 const fetch = require("node-fetch");
 var obj;
 async function f(o) {
-    o = await fetch('http://localhost:3000/posts/2')
+    o = await fetch('http://localhost:3000/posts?title=sasa')
         .then(function (response) {
             return response.json();
         })
