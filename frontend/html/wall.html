@@ -3,7 +3,7 @@
 
 <head>
 	<link href="../css/logged-in-style.css" rel="stylesheet">
-	<script src="../js/feedWall.js"></script>
+	
 
 </head>
 
@@ -54,78 +54,48 @@
 		</select>
 	</div>
 	<div class="content-posts" id="posts">
-
 		<div class="primary-content">
 			<div id="posts-container" class="container-posts">
-				<div class="card-post">
-					<div class="row">
-						<div class="col-sm-2">
-							<a href="user-profile.html" title="User Profile">
-								<img src="../imgs/user1.jpg" alt="User name" class="img-circle img-user">
-							</a>
-						</div>
-						<div class="col-sm-10">
-							<h3><a href="user-profile.html" title="User Profile">My User</a></h3>
-							<p><i>2h</i></p>
-						</div>
-					</div>
-					<hr>
-					<div class="row">
-						<div class="col-sm-8 col-sm-offset-2 data-post">
-							<p>post text bla bla bla bla post text bla bla bla blapost text bla bla bla blapost text bla bla bla blapost text bla bla bla blapost text bla bla bla bla</p>
-							<div class="likes">
-								<img draggable="false" class="emoji" src="https://twemoji.maxcdn.com/16x16/2764.png"> 156 <img draggable="false" class="emoji" src="https://twemoji.maxcdn.com/16x16/1f603.png"> 54
-							</div>
-							<div class="comments">
-								<div class="more-comments">View more comments</div>
-								<ul>
-									<li><b>User1</b> Lorem Ipsum Dolor si amet</li>
-									<li><b>User2</b> Lorem Ipsum Dolor si amet <img draggable="false" class="emoji" alt="😂" src="https://twemoji.maxcdn.com/16x16/1f602.png"></li>
-								</ul>
-								<form>
-									<input type="text" class="form-control" placeholder="Add a comment">
-								</form>
-							</div>
-						</div>
-					</div>
+
+			</div>
+		</div>
+	</div>
+	<div id="post-template">
+		<div class="card-post">
+			<div class="row">
+				<div class="col-sm-2">
+					<a href="user-profile.html" title="User Profile">
+						<img src="../imgs/user2.jpg" alt="User name" class="img-circle img-user">
+					</a>
 				</div>
-				<div class="card-post">
-					<div class="row">
-						<div class="col-sm-2">
-							<a href="user-profile.html" title="User Profile">
-								<img src="../imgs/user2.jpg" alt="User name" class="img-circle img-user">
-							</a>
-						</div>
-						<div class="col-sm-10">
-							<h3><a href="user-profile.html" title="User Profile">User Name</a></h3>
-							<p><i>5h</i></p>
-						</div>
+				<div class="col-sm-10">
+					<h3><a href="user-profile.html" title="User Profile">User Name</a></h3>
+					<p><i class="creationTime">5h</i></p>
+				</div>
+			</div>
+			<hr>
+			<div class="row">
+				<div class=" col-sm-8 col-sm-offset-2 data-post">
+					<p class="data">another post content blabablablablalbbalballablablaallblabla</p>
+					<img src="../imgs/user2.jpg" alt="image post" class="img-post">
+					<div class="likes">
+						<img draggable="false" class="emoji" alt="❤" src="https://twemoji.maxcdn.com/16x16/2764.png"><span class="like-count">0</span>
 					</div>
-					<hr>
-					<div class="row">
-						<div class=" col-sm-8 col-sm-offset-2 data-post">
-							<p>another post content blabablablablalbbalballablablaallblabla</p>
-							<img src="../imgs/user2.jpg" alt="image post" class="img-post">
-							<div class="likes">
-								<img draggable="false" class="emoji" alt="❤" src="https://twemoji.maxcdn.com/16x16/2764.png"> 1234 <img draggable="false" class="emoji" alt="😃" src="https://twemoji.maxcdn.com/16x16/1f603.png"> 54
-							</div>
-							<div class="comments">
-								<div class="more-comments">View more comments</div>
-								<ul>
-									<li><b>User1</b> Lorem Ipsum Dolor si amet</li>
-									<li><b>User2</b> Lorem Ipsum Dolor si amet <img draggable="false" class="emoji" alt="😂" src="https://twemoji.maxcdn.com/16x16/1f602.png"></li>
-								</ul>
-								<form>
-									<input type="text" class="form-control" placeholder="Add a comment">
-								</form>
-							</div>
-						</div>
+					<div class="comments">
+						<div class="more-comments">View more comments</div>
+						<ul>
+							<li><b>User1</b> Lorem Ipsum Dolor si amet</li>
+							<li><b>User2</b> Lorem Ipsum Dolor si amet <img draggable="false" class="emoji" alt="😂" src="https://twemoji.maxcdn.com/16x16/1f602.png"></li>
+						</ul>
+						<form>
+							<input type="text" class="form-control" placeholder="Add a comment">
+						</form>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<script>
+	<!-- <script>
 		document.getElementById("new-post-btn").onclick = function() {
 			var txt = document.getElementById("new-post-text").value;
 			var post = document.querySelector(".card-post");
@@ -139,8 +109,10 @@
 
 		}
 
-	</script>
-
+	</script> -->
+	<script src="../js/moduls.js"></script>
+	<script src="../js/wall.js"></script>
+	<script src="../js/feedWall.js"></script>
 </body>
 
 </html>
