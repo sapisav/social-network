@@ -4,31 +4,31 @@
 /* ########## feed - wall.html ########## */
 
 var globalY = -500;
-window.onscroll = function () {
-	if (document.body.getBoundingClientRect().y < globalY) {
-		// you're at the bottom of the page
+// window.onscroll = function () {
+// 	if (document.body.getBoundingClientRect().y < globalY) {
+// 		// you're at the bottom of the page
 
-		//hidden container contains all posts without duplication to avoid exp grow of the feed.
-		var posts = document.querySelector("#hidden-container").querySelectorAll(".card-post");
-		//		console.log(posts);
-		var postlist = [];
-		var postsContainer = document.querySelector("#posts-container");
-		for (let i = 0; i < posts.length; i++) {
-			postlist[i] = posts[i].cloneNode(true);
-			postsContainer.append(postlist[i]);
+// 		//hidden container contains all posts without duplication to avoid exp grow of the feed.
+// 		var posts = document.querySelector("#hidden-container").querySelectorAll(".card-post");
+// 		//		console.log(posts);
+// 		var postlist = [];
+// 		var postsContainer = document.querySelector("#posts-container");
+// 		for (let i = 0; i < posts.length; i++) {
+// 			postlist[i] = posts[i].cloneNode(true);
+// 			postsContainer.append(postlist[i]);
 
-		}
+// 		}
 
-		addEv(postlist);
-		//		addEvents(); 
-		globalY = globalY - 1100;
-		// for the new posts
-
-
-	}
+// 		addEv(postlist);
+// 		//		addEvents(); 
+// 		globalY = globalY - 1100;
+// 		// for the new posts
 
 
-};
+// 	}
+
+
+// };
 /// add events for new data
 function addEv(list) {
 	for (let i = 0; i < list.length; i++) {
@@ -58,9 +58,9 @@ function addEv(list) {
 
 
 //init events
-document.querySelector("body").onload = function () {
-	addEvents();
-}
+// document.querySelector("body").onload = function () {
+// 	addEvents();
+// }
 
 
 
