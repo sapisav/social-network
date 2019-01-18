@@ -33,7 +33,7 @@ header {
 }
 
 form {
-    display: inline;
+    display: block;
     float: left;
     margin-left: 40px;
 }
@@ -305,6 +305,10 @@ a {
 
 #hidden-container {
 	display: none;
+}
+
+#post-template {
+    display: none;
 }
 
 
