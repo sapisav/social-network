@@ -3,7 +3,7 @@
 let $userName = document.querySelector("#userName");
 let $pw = document.querySelector("#pw");
 let $alert = document.querySelector(".alert");
-// redirect to feed after login button is clicked	
+// redirect to feed after login button is clicked if verification succed, else will show bootstrap alert
 document.getElementById("loginBTN").onclick = function () {
 	validateUsernameAndPw();
 };
