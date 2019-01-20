@@ -31,10 +31,15 @@ function showAlert(bool, alertMsg, trigger) {
 }
 
 //create user obj
-function User(userName, pw) {
-	this.userName = userName;
-	this.password = pw;
-}
+// function User(userName, pw, fullName, profilePicLink, role = "regular", userInfo ="", privacy) {
+// 	this.userName = userName;
+// 	this.password = pw;
+// 	this.fullName = fullName;
+// 	this.profilePicLink = profilePicLink;
+// 	this.role = role;
+// 	this. userInfo = userInfo;
+// 	this.privacy = privacy;
+// }
 
 // validate with db if username available
 em1.onblur = function (e) {
