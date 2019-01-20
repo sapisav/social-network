@@ -33,9 +33,23 @@ async function validateUsernameAndPw(){
 		showAlert(true);
 	}
 	else {
+		let count = await fetch(`http://localhost:3000/posts?userName=${$userName.value}`)
+		.then(function (response) {
+			return response.json();})
+		.catch(error => console.error('Error:', error));
+		localStorage.setItem("postsCount", count.length);
 		localStorage.setItem("logged-in-as", `${user[0].userName}`);
+		localStorage.setItem("userObject",JSON.stringify(user[0]));
 		location.href = "feed.html";
 	}
+}
+
+async function countPosts(){
+	let count = await fetch(`http://localhost:3000/posts?userName=${$userName.value}`)
+		.then(function (response) {
+            return response.json();
+		})
+		
 }
 
 
