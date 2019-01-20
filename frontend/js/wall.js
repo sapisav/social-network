@@ -4,7 +4,7 @@ let postsContainer = document.querySelector("#posts-container");
 loadMyPosts(); // loading current logged in user posts from DB
 
 async function loadMyPosts(){
-    myPosts = await fetch(`http://localhost:3000/posts?author=${loggedInUsername}`)
+    myPosts = await fetch(`http://localhost:3000/posts?userName=${loggedInUsername}`)
     .then(function (response) {
         return response.json();
     });
@@ -19,6 +19,13 @@ function bindPostsToTemplate(){
         postsList[i].querySelector(".data").innerHTML = myPosts[i].data;
         postsList[i].querySelector(".creationTime").innerHTML = myPosts[i].creationTime;
         postsList[i].querySelector(".like-count").innerHTML = myPosts[i].likes;
+        bindEvents(postsList[i]);
         postsContainer.append(postsList[i]);
+        
     }
 }
+
+function bindEvents(post){
+    
+}
+
