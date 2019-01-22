@@ -2,6 +2,8 @@
 <html>
 
 <head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+	 crossorigin="anonymous">
 	<link href="../css/logged-in-style.css" rel="stylesheet">
 </head>
 
@@ -34,7 +36,7 @@
 			<i>user status / description</i>
 		</p>
 	</div>
-	<div class="profile-container">
+	<div class="profile-container container">
 		<div class="profile-info">
 			<button id="edit-info">Edit profile</button>
 			<h3>First name: Tlula</h3>
@@ -48,6 +50,73 @@
 		</div>
 
 	</div>
+	<div id="hidden-container" class="container profile-container">
+		<div id="edit-profile">
+			<br>
+			<div class="input-group">
+				<div class="input-group-prepend">
+					<span class="input-group-text">First and last name</span>
+				</div>
+				<input type="text" aria-label="First name" class="form-control">
+				<input type="text" aria-label="Last name" class="form-control">
+			</div>
+			<br>
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<span class="input-group-text" id="inputGroupFileAddon01">choose profile pic</span>
+				</div>
+				<div class="custom-file">
+					<input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+					<label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+				</div>
+			</div>
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<span class="input-group-text" id="inputGroup-sizing-default">Tell something about you</span>
+				</div>
+				<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+			</div>
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<span class="input-group-text" id="inputGroup-sizing-default">DOB</span>
+				</div>
+				<input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+			</div>
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<label class="input-group-text" for="inputGroupSelect01">Gender</label>
+				</div>
+				<select class="custom-select" id="inputGroupSelect01">
+					<option selected>Not interested</option>
+					<option value="1">Male</option>
+					<option value="2">Female</option>
+				</select>
+			</div>
+			<button id="update-btn" type="button" class="btn btn-primary">Done</button>
+		</div>
+
+		<div id="show-profile">
+			<div class="card">
+				<img class="card-img-top" src="../imgs/user1.jpg" alt="Card image cap">
+				<div class="card-body">
+					<h3>First Name: <span>sasa</span></h3>
+					<h3>Last Name: <span>sasa</span></h3>
+					<h3>DOB: <span>sasa</span></h3>
+					<h3>Gender: <span>sasa</span></h3>
+					<h3>About me: <span>sasa</span></h3>
+					<button id="edit-btn" type="button" class="btn btn-primary">Edit</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	 crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+	 crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+	 crossorigin="anonymous"></script>
+	<script src="../js/profile.js"></script>
 
 </body>
 
