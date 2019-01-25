@@ -2,8 +2,10 @@
 <html lang="en">
 
 <head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+	 crossorigin="anonymous">
 	<link href="../css/logged-in-style.css" rel="stylesheet">
-	
+
 
 </head>
 
@@ -27,25 +29,25 @@
 	</header>
 	<div class="sidebar-nav">
 		<a href="profile.html" title="Profile">
-			<img src="../imgs/user1.jpg" alt="User name" class="img-profile">
+			<img id="a-img" src="../imgs/user1.jpg" alt="User name" class="img-profile">
 		</a>
 		<h2 class="text-center">
-			<a href="personal-profile.html" title="Profile">My User</a>
+			<a id="a-full-name" href="profile.html" title="Profile">My User</a>
 		</h2>
-		<p class="text-center">
-			<i>user status / description</i>
+		<p class="text-center user-description hidden-xs">
+			<i id="i-about-me">user status / description</i>
 		</p>
 	</div>
-	<div id="new-post-div">
-		<div class="primary-content">
-			<form id="new-post-form">
-				<input type="file" value="photo/video">
-				<textarea placeholder="write new post" name="" id="new-post-text" cols="80" rows="10"></textarea>
-				<button type="button" id="new-post-btn">Post</button>
-			</form>
+	<div id="new-post-div" class="container">
+		<div class="primary-content container">
+
+			<input class=".form-control" type="file" value="photo/video">
+			<textarea class=".form-control" placeholder="write new post" name="" id="new-post-text" rows="10"></textarea>
+			<button class="btn btn-primary" type="button" id="new-post-btn">Post</button>
+
 		</div>
 	</div>
-	<div id="sort-posts-div">
+	<div class="container" id="sort-posts-div">
 		<span id="sort-span">Sort by:</span>
 		<select name="lol" id="sort-by">
 			<option value="date">Date</option>
@@ -61,27 +63,28 @@
 		</div>
 	</div>
 	<div id="post-template">
+		<!-- post template -->
 		<div class="card-post">
 			<div class="row">
 				<div class="col-sm-2">
-					<a href="user-profile.html" title="User Profile">
-						<img src="../imgs/user2.jpg" alt="User name" class="img-circle img-user">
+					<a href="profile.html" title="User Profile">
+						<img id="post-header-pic" alt="User name" class="img-circle img-user">
 					</a>
 				</div>
 				<div class="col-sm-10">
-					<h3><a href="user-profile.html" title="User Profile">User Name</a></h3>
-					<p><i class="creationTime">5h</i></p>
+					<h3><a id="post-header-name" href="profile.html" title="User Profile">full name</a></h3>
+					<p><i id="post-header-date" class="creationTime">5h</i></p>
 				</div>
 			</div>
 			<hr>
 			<div class="row">
-				<div class=" col-sm-8 col-sm-offset-2 data-post">
-					<p class="data">another post content blabablablablalbbalballablablaallblabla</p>
-					<img src="../imgs/user2.jpg" alt="image post" class="img-post">
+				<div class="col col-sm-8  data-post">
+					<p class="data">post data</p>
+					<!-- <img src="../imgs/user2.jpg" alt="image post" class="img-post"> -->
 					<div class="likes">
 						<img draggable="false" class="emoji" alt="❤" src="https://twemoji.maxcdn.com/16x16/2764.png"><span class="like-count">0</span>
 					</div>
-					<div class="comments">
+					<!-- <div class="comments">
 						<div class="more-comments">View more comments</div>
 						<ul>
 							<li><b>User1</b> Lorem Ipsum Dolor si amet</li>
@@ -90,12 +93,70 @@
 						<form>
 							<input type="text" class="form-control" placeholder="Add a comment">
 						</form>
+					</div> -->
+				</div>
+
+			</div>
+			<hr>
+			<div class="row comments">
+				<p>
+					<!-- show comments button -->
+					<button class="btn btn-secondary show-cmnt-btn" type="button" data-toggle="collapse" data-target="#collapseExamples"
+					 aria-expanded="false" aria-controls="collapseExample">
+						Show comments
+					</button>
+					<hr>
+				</p>
+				
+					<div class="collapse cola" id="collapseExamples-1@1.com5">
+						<!-- <div class="card card-body"> -->
+						<ul class="comments-container">
+
+						</ul>
+						<!-- </div> -->
 					</div>
+				
+			</div>
+			<div class="row">
+				<div class="input-group">
+					<div class="input-group-prepend">
+						<span class="input-group-text"><button id="comment-btn" type="button" class="btn btn-primary">Comment</button></span>
+					</div>
+					<textarea id="comment-data" class="form-control" aria-label="With textarea"></textarea>
 				</div>
 			</div>
 		</div>
+		<!-- comment template -->
+		<li class="comment-post-template container">
+			<div class="row">
+				<div class="col cmnt-left">
+
+					<p class="cmnt-username"></p>
+
+				</div>
+
+
+			</div>
+			<div class="row">
+				<div class="col cmnt-right">
+					<p class="cmnt-data"></p>
+				</div>
+			</div>
+			<div class="row likes">
+				<img draggable="false" class="emoji" alt="❤" src="https://twemoji.maxcdn.com/16x16/2764.png"><span class="like-count">0</span>
+			</div>
+			<div class="row">
+
+			</div>
+			<hr>
+		</li>
+
 	</div>
-	
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+	 crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+	 crossorigin="anonymous"></script>
 	<script src="../js/moduls.js"></script>
 	<script src="../js/wall.js"></script>
 	<script src="../js/feedWall.js"></script>
