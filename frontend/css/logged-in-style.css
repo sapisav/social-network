@@ -108,7 +108,8 @@ header .second-icon {
 	resize: none;
 	border-radius: 10px;
 	display: block;
-	margin-top: 10px;
+    margin-top: 10px;
+    width: 100%;
 }
 
 #new-post-btn {
@@ -311,6 +312,17 @@ a {
     display: none;
 }
 
+.cmnt-right {
+    margin-left: 3%;
+}
 
+.comments-container, .cola{
+    width: 95%;
+    padding: 2%;
+}
+.show-cmnt-btn{
+    margin-left: 1px;
+    display: none;
+}
 
 

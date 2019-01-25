@@ -1,7 +1,7 @@
 const fetch = require("node-fetch");
 var obj;
 async function f(o) {
-    o = await fetch('http://localhost:3000/posts?title=sasa')
+    o = await fetch('http://localhost:3000/posts?likes=5')
         .then(function (response) {
             return response.json();
         })
@@ -9,19 +9,19 @@ async function f(o) {
     
     console.log(o);
     ////////////////// POST /////////////////
-    var url = 'http://localhost:3000/users';
-    let newUser = new User("a@a.com", "123123");
-    // data.title = "safgfgfgfgfgfgfsa";
+    // var url = 'http://localhost:3000/users';
+    // let newUser = new User("a@a.com", "123123");
+    // // data.title = "safgfgfgfgfgfgfsa";
     
-    fetch(url, {
-        method: 'POST', // or 'PUT'
-        body: JSON.stringify(newUser), // data can be `string` or {object}!
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    }).then(res => res.json())
-    .then(response => console.log('Success:', JSON.stringify(response)))
-    .catch(error => console.error('Error:', error));
+    // fetch(url, {
+    //     method: 'POST', // or 'PUT'
+    //     body: JSON.stringify(newUser), // data can be `string` or {object}!
+    //     headers: {
+    //         'Content-Type': 'application/json'
+    //     }
+    // }).then(res => res.json())
+    // .then(response => console.log('Success:', JSON.stringify(response)))
+    // .catch(error => console.error('Error:', error));
 
 
 }

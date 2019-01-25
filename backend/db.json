@@ -1,37 +1,168 @@
 {
   "posts": [
     {
+      "userName": "1@1.com",
+      "data": "first post",
+      "userProfile": "userProfile",
+      "postID": "1@1.com5",
+      "likes": 0,
+      "likers": [],
+      "creationTime": "1548411313715",
       "id": 1,
-      "data": "post data blablabla",
-      "author": "s@s.com",
-      "creationTime": "some time",
-      "likes": 5
+      "hasComments": false
     },
     {
-      "id": 1,
-      "data": "second post",
-      "author": "s@s.com",
-      "creationTime": "some time",
-      "likes": 60
+      "userName": "1@1.com",
+      "data": "other",
+      "userProfile": "userProfile",
+      "postID": "1@1.com6",
+      "likes": 0,
+      "likers": [],
+      "creationTime": "1548417028829",
+      "id": 2,
+      "hasComments": true
+    },
+    {
+      "userName": "1@1.com",
+      "data": "no comment",
+      "userProfile": "userProfile",
+      "postID": "1@1.com8",
+      "likes": 0,
+      "likers": [],
+      "creationTime": "1548423734072",
+      "id": 3
     }
   ],
   "comments": [
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "userName": "1@1.com",
+      "data": "first comment",
+      "userProfile": "userProfile",
+      "commentID": "1@1.com2",
+      "postID": "1@1.com5",
+      "likes": 0,
+      "likers": [],
+      "creationTime": "1548411323741",
+      "id": 1
+    },
+    {
+      "userName": "1@1.com",
+      "data": "second comment",
+      "userProfile": "userProfile",
+      "commentID": "1@1.com3",
+      "postID": "1@1.com5",
+      "likes": 0,
+      "likers": [],
+      "creationTime": "1548411329244",
+      "id": 2
+    },
+    {
+      "userName": "1@1.com",
+      "data": "bla asddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdsad",
+      "userProfile": "userProfile",
+      "commentID": "1@1.com4",
+      "postID": "1@1.com5",
+      "likes": 0,
+      "likers": [],
+      "creationTime": "1548414814901",
+      "id": 3
+    },
+    {
+      "userName": "1@1.com",
+      "data": "wtf",
+      "userProfile": "userProfile",
+      "commentID": "1@1.com5",
+      "postID": "1@1.com6",
+      "likes": 0,
+      "likers": [],
+      "creationTime": "1548420206251",
+      "id": 4
+    },
+    {
+      "userName": "1@1.com",
+      "data": "as",
+      "userProfile": "userProfile",
+      "commentID": "1@1.com6",
+      "postID": "1@1.com6",
+      "likes": 0,
+      "likers": [],
+      "creationTime": "1548421115464",
+      "id": 5
+    },
+    {
+      "userName": "1@1.com",
+      "data": "asd",
+      "userProfile": "userProfile",
+      "commentID": "1@1.com7",
+      "postID": "1@1.com5",
+      "likes": 0,
+      "likers": [],
+      "creationTime": "1548421125215",
+      "id": 6
+    },
+    {
+      "userName": "1@1.com",
+      "data": "lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum ",
+      "userProfile": "userProfile",
+      "commentID": "1@1.com8",
+      "postID": "1@1.com6",
+      "likes": 0,
+      "likers": [],
+      "creationTime": "1548421175873",
+      "id": 7
+    },
+    {
+      "userName": "1@1.com",
+      "data": "lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum ",
+      "userProfile": "userProfile",
+      "commentID": "1@1.com9",
+      "postID": "1@1.com6",
+      "likes": 0,
+      "likers": [],
+      "creationTime": "1548421191855",
+      "id": 8
+    },
+    {
+      "userName": "1@1.com",
+      "data": "asdsadasdasd",
+      "userProfile": "userProfile",
+      "commentID": "1@1.com10",
+      "postID": "1@1.com5",
+      "likes": 0,
+      "likers": [],
+      "creationTime": "1548421548245",
+      "id": 9
+    },
+    {
+      "userName": "1@1.com",
+      "data": "a",
+      "userProfile": "userProfile",
+      "commentID": "1@1.com13",
+      "postID": "1@1.com8",
+      "likes": 0,
+      "likers": [],
+      "creationTime": "1548424377231",
+      "id": 10
     }
   ],
   "users": [
     {
-      "id": 1,
-      "userName": "sapisav@gmail.com",
-      "password": "1234"
-    },
-    {
-      "userName": "s@s.com",
+      "userName": "1@1.com",
       "password": "1234",
-      "id": 2
+      "firstName": "sapir",
+      "lastName": "savion",
+      "pic": "../imgs/banner.jpg",
+      "role": "regular",
+      "userInfo": "userInfo",
+      "privacy": "public",
+      "friends": [],
+      "initProfile": true,
+      "gender": "Male",
+      "dob": "2019-01-01",
+      "postCount": 9,
+      "id": 6,
+      "info": "ITS ME",
+      "commentCount": 14
     }
   ]
 }

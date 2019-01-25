@@ -45,6 +45,7 @@ function showAlert(bool, alertMsg, trigger) {
 em1.onblur = function (e) {
 	if (em1.value != "" && ValidateEmail())
 		checkIfExist($em1.value).catch(error => console.error(error));
+		else if(em1.value == ""); // do nothing
 	else showAlert(true, "Email adress not valid", "em1");
 
 
@@ -101,6 +102,7 @@ $pw2.onblur = function () {
 $registerButton.onclick = function () {
 	if (lastVerification()) {
 		let newUser = new User($em1.value, $pw1.value);
+		newUser.pic = '../imgs/empty.png';
 		$registerButton.style.display = 'none';
 		addNewUserToDB(newUser);
 

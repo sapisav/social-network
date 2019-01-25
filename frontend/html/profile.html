@@ -27,26 +27,17 @@
 	</header>
 	<div class="sidebar-nav">
 		<a href="profile.html" title="Profile">
-			<img src="../imgs/user1.jpg" alt="User name" class="img-profile">
+			<img id="a-img" src="../imgs/user1.jpg" alt="User name" class="img-profile">
 		</a>
 		<h2 class="text-center">
-			<a href="personal-profile.html" title="Profile">My User</a>
+			<a id="a-full-name" href="profile.html" title="Profile">My User</a>
 		</h2>
 		<p class="text-center user-description hidden-xs">
-			<i>user status / description</i>
+			<i id="i-about-me">user status / description</i>
 		</p>
 	</div>
 	<div class="profile-container container">
 		<div class="profile-info">
-			<button id="edit-info">Edit profile</button>
-			<h3>First name: Tlula</h3>
-			<h3>Second name: Falula</h3>
-			<h3>Job: backend developer</h3>
-			<h3>Hobbies: Extreme sports, gaming and solving problems</h3>
-			<h3>DOB: 10/4/1988</h3>
-			<h3>profile picture: </h3>
-			<img src="../imgs/user1.jpg" class="img-profile img-info">
-
 		</div>
 
 	</div>
@@ -57,8 +48,8 @@
 				<div class="input-group-prepend">
 					<span class="input-group-text">First and last name</span>
 				</div>
-				<input type="text" aria-label="First name" class="form-control">
-				<input type="text" aria-label="Last name" class="form-control">
+				<input id="input-fname" type="text" aria-label="First name" class="form-control">
+				<input id="input-lname" type="text" aria-label="Last name" class="form-control">
 			</div>
 			<br>
 			<div class="input-group mb-3">
@@ -66,56 +57,94 @@
 					<span class="input-group-text" id="inputGroupFileAddon01">choose profile pic</span>
 				</div>
 				<div class="custom-file">
-					<input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-					<label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+					<input id="input-pic" type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+					<label class="custom-file-label" for="inputGroupFile01">Choose photo</label>
 				</div>
 			</div>
 			<div class="input-group mb-3">
 				<div class="input-group-prepend">
 					<span class="input-group-text" id="inputGroup-sizing-default">Tell something about you</span>
 				</div>
-				<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+				<input id="input-info" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
 			</div>
 			<div class="input-group mb-3">
 				<div class="input-group-prepend">
 					<span class="input-group-text" id="inputGroup-sizing-default">DOB</span>
 				</div>
-				<input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+				<input id="input-dob" type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
 			</div>
 			<div class="input-group mb-3">
 				<div class="input-group-prepend">
 					<label class="input-group-text" for="inputGroupSelect01">Gender</label>
 				</div>
-				<select class="custom-select" id="inputGroupSelect01">
+				<select id="input-gender" class="custom-select">
 					<option selected>Not interested</option>
-					<option value="1">Male</option>
-					<option value="2">Female</option>
+					<option value="Male">Male</option>
+					<option value="Female">Female</option>
+				</select>
+			</div>
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<label class="input-group-text" for="inputGroupSelect01">Privacy</label>
+				</div>
+				<select id="input-privacy" class="custom-select">
+					<option selected value="public">Public</option>
+					<option value="friends">Friends only</option>
+					<option value="private">Private</option>
 				</select>
 			</div>
 			<button id="update-btn" type="button" class="btn btn-primary">Done</button>
+			<button id="cancel-btn" type="button" class="btn btn-secondary">Cancel</button>
+			<!-- Button trigger modal -->
+			<button style="float: right;" type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+				Delete account
+			</button>
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+			 aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">Enter password to delete account</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<input id="input-delete-acc" type="password">
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+							<button id="delete-btn" type="button" class="btn btn-danger">Confirm</button>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 
 		<div id="show-profile">
 			<div class="card">
-				<img class="card-img-top" src="../imgs/user1.jpg" alt="Card image cap">
+				<img id="card-img" class="card-img-top" src="../imgs/user1.jpg" alt="Card image cap">
 				<div class="card-body">
-					<h3>First Name: <span>sasa</span></h3>
-					<h3>Last Name: <span>sasa</span></h3>
-					<h3>DOB: <span>sasa</span></h3>
-					<h3>Gender: <span>sasa</span></h3>
-					<h3>About me: <span>sasa</span></h3>
+					<h3>First Name: <span id="fname-span">sasa</span></h3>
+					<h3>Last Name: <span id="lname-span">sasa</span></h3>
+					<h3>DOB: <span id="dob-span">sasa</span></h3>
+					<h3>Gender: <span id="gender-span">sasa</span></h3>
+					<h3>About me: <span id="info-span">sasa</span></h3>
 					<button id="edit-btn" type="button" class="btn btn-primary">Edit</button>
 				</div>
 			</div>
 		</div>
 	</div>
-
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-	 crossorigin="anonymous"></script>
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	 crossorigin="anonymous"></script> -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
 	 crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
 	 crossorigin="anonymous"></script>
+	<script src="../js/moduls.js"></script>
 	<script src="../js/profile.js"></script>
 
 </body>

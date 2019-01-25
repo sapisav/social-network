@@ -126,23 +126,23 @@ document.querySelector("#sort-by").onchange = function () {
 }
 
 // make new post
-document.getElementById("new-post-btn").onclick = function () {
-	//	var pic = document.getElementById("pic-file").v
-	var txt = document.getElementById("new-post-text").value;
-	var post = document.querySelector(".card-post");
-	var postClone = post.cloneNode(true);
+// document.getElementById("new-post-btn").onclick = function () {
+// 	//	var pic = document.getElementById("pic-file").v
+// 	var txt = document.getElementById("new-post-text").value;
+// 	var post = document.querySelector(".card-post");
+// 	var postClone = post.cloneNode(true);
 
-	postClone.querySelector(".p-txt").innerHTML = txt;
+// 	postClone.querySelector(".p-txt").innerHTML = txt;
 	
-	document.querySelector("#posts-container").prepend(postClone);
-	var list = [];
-	list.push(postClone);
-	addEv(list);
-	var postClone2 = postClone.cloneNode(true);
-	document.querySelector("#hidden-container").prepend(postClone2);
+// 	document.querySelector("#posts-container").prepend(postClone);
+// 	var list = [];
+// 	list.push(postClone);
+// 	addEv(list);
+// 	var postClone2 = postClone.cloneNode(true);
+// 	document.querySelector("#hidden-container").prepend(postClone2);
 
 
-}
+// }
 
 
 // adding all comment buttons event

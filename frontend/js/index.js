@@ -22,7 +22,7 @@ async function validateUsernameAndPw(){
 	let user = await fetch(`http://localhost:3000/users?userName=${$userName.value}`)
         .then(function (response) {
             return response.json();
-        })
+        }).catch(error => console.log(error));
 
     
     if(user[0] == undefined){
@@ -40,7 +40,9 @@ async function validateUsernameAndPw(){
 		localStorage.setItem("postsCount", count.length);
 		localStorage.setItem("logged-in-as", `${user[0].userName}`);
 		localStorage.setItem("userObject",JSON.stringify(user[0]));
-		location.href = "feed.html";
+		if(user[0].initProfile)
+			location.href = "feed.html";
+		else location.href = "profile.html";
 	}
 }
 
