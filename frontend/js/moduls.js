@@ -50,7 +50,7 @@ class Post {
         this.userName = currentUser.userName;
         this.data = data;
         this.userProfile = 'userProfile';//fix
-        this.postID = currentUser.userName + parseInt(currentUser.postCount);
+        this.postID = "P"+currentUser.userName + parseInt(currentUser.postCount);
         this.likes = 0;
         this.likers = [];
         this.creationTime = Date.now().toString();
@@ -63,7 +63,7 @@ class Comment {
         this.userName = currentUser.userName;
         this.data = data;
         this.userProfile = 'userProfile';//fix
-        this.commentID = currentUser.userName + parseInt(currentUser.commentCount);
+        this.commentID = "C"+currentUser.userName + parseInt(currentUser.commentCount);
         this.postID = postID;
         this.likes = 0;
         this.likers = [];

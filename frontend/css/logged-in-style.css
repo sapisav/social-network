@@ -320,9 +320,16 @@ a {
     width: 95%;
     padding: 2%;
 }
-.show-cmnt-btn{
+.show-cmnt-btn, #com-of-com-btn{
     margin-left: 1px;
     display: none;
+}
+#com-to-com-btn{
+    margin-left: 1px;
+    display: inline;
+}
+.c-of-c{
+    margin-left: 15%;
 }
 
 

@@ -155,34 +155,31 @@
 		<div id="inner-cmnt" class="row">
 				<p>
 					<!-- comment to comment button -->
-					<button class="btn btn-success" type="button" data-toggle="collapse" data-target="#collapse-text" aria-expanded="false"
+					<button id="com-to-com-btn" value="show" class="btn btn-success" type="button" data-toggle="collapse" data-target="#collapse-text" aria-expanded="false"
 					 aria-controls="collapseExample">
-						Comment to this comment
+						Comment
 					</button>
 					<!-- show comments of comment button -->
-					<button class="btn btn-light" type="button" data-toggle="collapse" data-target="#collapse-cmnts" aria-expanded="false"
+					<button id="com-of-com-btn" value="show" class="btn btn-light" type="button" data-toggle="collapse" data-target="#collapse-cmnts" aria-expanded="false"
 					 aria-controls="collapseExample">
-						Show comments to this comment
+						Show comments
 					</button>
 				</p>
 				<!-- comment to comment text area -->
-				<div class="collapse cola" id="collapse-text">
+				<div class="collapse cola" id="com-to-com-input">
 					<!-- <div class="row"> -->
 						<div class="input-group">
 							<div class="input-group-prepend">
 								<span class="input-group-text"><button id="comment-btn" type="button" class="btn btn-success">Comment</button></span>
 							</div>
-							<textarea id="comment-data" class="form-control" aria-label="With textarea"></textarea>
+							<textarea id="com-com-data" class="form-control" aria-label="With textarea"></textarea>
 						</div>
 					<!-- </div> -->
 
 				</div>
 				<!-- comment of comment container -->
-				<div class="collapse cola" id="collapse-cmnts">
-					<div class="card card-body">
-						Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim
-						keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-					</div>
+				<div class="collapse cola colaa" id="com-of-com-show">
+					
 				</div>
 			</div>
 
