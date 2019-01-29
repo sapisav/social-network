@@ -1,197 +1,251 @@
 <!doctype html>
-<html lang="en">
+<html>
 
 <head>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
-	 crossorigin="anonymous">
-	<link href="../css/logged-in-style.css" rel="stylesheet">
-
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+    <link href="../css/logged-in-style.css" rel="stylesheet">
 </head>
 
-<body id="wall">
-	<header>
-		<form class="text-left-search">
-			<input type="search" placeholder="Search">
-		</form>
-		<div class="menu-icon"><a href="#setting">Setting</a>
-		</div>
-		<div class="menu-icon second-icon"><a href="#notifaction">Notifaction</a>
-		</div>
-		<div class="menu-icon second-icon"><a href="profile.html">Profile</a>
-		</div>
-		<div class="menu-icon second-icon"><a href="wall.html">Wall</a>
-		</div>
-		<div class="menu-icon second-icon"><a href="feed.html">Feed</a>
-		</div>
-		<div class="menu-icon second-icon"><a href="index.html">Log out</a>
-		</div>
-	</header>
-	<div class="sidebar-nav">
-		<a href="profile.html" title="Profile">
-			<img id="a-img" src="../imgs/user1.jpg" alt="User name" class="img-profile">
-		</a>
-		<h2 class="text-center">
-			<a id="a-full-name" href="profile.html" title="Profile">My User</a>
-		</h2>
-		<p class="text-center user-description hidden-xs">
-			<i id="i-about-me">user status / description</i>
-		</p>
-	</div>
-	<div id="new-post-div" class="container">
-		<div class="primary-content container">
+<body>
+    <header>
+        <form class="text-left-search">
+            <input type="search" placeholder="Search">
+        </form>
+        <div class="menu-icon"><a href="#setting">Setting</a>
+        </div>
+        <div class="menu-icon second-icon"><a href="#notifaction">Notifaction</a>
+        </div>
+        <div class="menu-icon second-icon"><a href="profile.html">Profile</a>
+        </div>
+        <div class="menu-icon second-icon"><a href="wall.html">Wall</a>
+        </div>
+        <div class="menu-icon second-icon"><a href="feed.html">Feed</a>
+        </div>
+        <div class="menu-icon second-icon"><a href="index.html">Log out</a>
+        </div>
+    </header>
 
-			<input class=".form-control" type="file" value="photo/video">
-			<textarea class=".form-control" placeholder="write new post" name="" id="new-post-text" rows="10"></textarea>
-			<button class="btn btn-primary" type="button" id="new-post-btn">Post</button>
+    <div class="sidebar-nav">
+        <a href="profile.html" title="Profile">
+            <img id="a-img" src="../imgs/user1.jpg" alt="User name" class="img-profile">
+        </a>
+        <h2 class="text-center">
+            <a id="a-full-name" href="profile.html" title="Profile">My User</a>
+        </h2>
+        <p class="text-center user-description hidden-xs">
+            <i id="i-about-me">user status / description</i>
+        </p>
+    </div>
 
-		</div>
-	</div>
-	<div class="container" id="sort-posts-div">
-		<span id="sort-span">Sort by:</span>
-		<select name="lol" id="sort-by">
-			<option value="date">Date</option>
-			<option value="video">Videos first</option>
-			<option value="shuffle">Shuffle</option>
-		</select>
-	</div>
-	<div class="content-posts" id="posts">
-		<div class="primary-content">
-			<div id="posts-container" class="container-posts">
+    <div id="new-post-div" class="container">
+        <div class="primary-content container">
+            <!-- Button trigger modal -->
+            <button id="add-item-btn" type="button" class="btn-sm btn-primary" data-toggle="modal" data-target="#exampleModal">
+                Add video / image / link
+            </button>
 
-			</div>
-		</div>
-	</div>
-	<div id="post-template">
-		<!-- post template -->
-		<div class="card-post">
-			<div class="row">
-				<div class="col-sm-2">
-					<a href="profile.html" title="User Profile">
-						<img id="post-header-pic" alt="User name" class="img-circle img-user">
-					</a>
-				</div>
-				<div class="col-sm-10">
-					<h3><a id="post-header-name" href="profile.html" title="User Profile">full name</a></h3>
-					<p><i id="post-header-date" class="creationTime">5h</i></p>
-				</div>
-			</div>
-			<hr>
-			<div class="row">
-				<div class="col col-sm-8  data-post">
-					<p class="data">post data</p>
-					<!-- <img src="../imgs/user2.jpg" alt="image post" class="img-post"> -->
-					<div class="likes">
-						<img draggable="false" class="emoji" alt="❤" src="https://twemoji.maxcdn.com/16x16/2764.png"><span class="like-count">0</span>
-					</div>
-					<!-- <div class="comments">
-						<div class="more-comments">View more comments</div>
-						<ul>
-							<li><b>User1</b> Lorem Ipsum Dolor si amet</li>
-							<li><b>User2</b> Lorem Ipsum Dolor si amet <img draggable="false" class="emoji" alt="😂" src="https://twemoji.maxcdn.com/16x16/1f602.png"></li>
-						</ul>
-						<form>
-							<input type="text" class="form-control" placeholder="Add a comment">
-						</form>
-					</div> -->
-				</div>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Add items</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- YouTube link -->
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon3">YouTube link</span>
+                                </div>
+                                <input id="input-youtube-link" type="text" class="form-control" id="basic-url"
+                                    aria-describedby="basic-addon3">
+                            </div>
+                            <!-- upload video -->
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroupFileAddon01">Upload video</span>
+                                </div>
+                                <div class="custom-file">
+                                    <input id="input-video" type="file" accept="video/*" class="custom-file-input" id="inputGroupFile01"
+                                        aria-describedby="inputGroupFileAddon01">
+                                    <label class="custom-file-label" for="inputGroupFile01">Choose video</label>
+                                </div>
+                            </div>
+                            <!-- upload image -->
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroupFileAddon01">Upload image</span>
+                                </div>
+                                <div class="custom-file">
+                                    <input id="input-image" type="file" accept="image/*" class="custom-file-input" id="inputGroupFile01"
+                                        aria-describedby="inputGroupFileAddon01">
+                                    <label class="custom-file-label" for="inputGroupFile01">Choose image</label>
+                                </div>
+                            </div>
+                            <!-- upload file -->
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <input class=".form-control" type="file" value="photo/video"> -->
+            <textarea class=".form-control" placeholder="write new post" name="" id="new-post-text" rows="10"></textarea>
+            <button class="btn btn-primary" type="button" id="new-post-btn">Post</button>
 
-			</div>
-			<hr>
-			<div class="row comments">
-				<p>
-					<!-- show comments button -->
-					<button id="show-cmnt-btn" value="show" class="btn btn-secondary show-cmnt-btn" type="button" data-toggle="collapse" data-target="#collapseExamples"
-					 aria-expanded="false" aria-controls="collapseExample">
-						Show comments
-					</button>
-					<hr>
-				</p>
+        </div>
+    </div>
 
-				<div class="collapse cola" id="collapseExamples-1@1.com5">
-					<!-- <div class="card card-body"> -->
-					<ul class="comments-container">
+    <div id="psts" class="profile-container container">
 
-					</ul>
-					<!-- </div> -->
-				</div>
+    </div>
 
-			</div>
-			<div class="row">
-				<div class="input-group">
-					<div class="input-group-prepend">
-						<span class="input-group-text"><button id="comment-btn" type="button" class="btn btn-primary">Comment</button></span>
-					</div>
-					<textarea id="comment-data" class="form-control" aria-label="With textarea"></textarea>
-				</div>
-			</div>
-		</div>
-		<!-- comment template -->
-		<li class="comment-post-template container">
-			<div class="row">
-				<div class="col cmnt-left">
+    <div id="post-template">
+        <!-- post template -->
+        <div class="card-post">
+            <div class="row">
+                <div class="col-sm-2">
+                    <a href="profile.html" title="User Profile">
+                        <img id="post-header-pic" alt="User name" class="img-circle img-user">
+                    </a>
+                </div>
+                <div class="col-sm-10">
+                    <h3><a id="post-header-name" href="profile.html" title="User Profile">full name</a></h3>
+                    <p><i id="post-header-date" class="creationTime">5h</i></p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col col-sm-8  data-post">
+                    <p class="data">post data</p>
+                    <!-- <img src="../imgs/user2.jpg" alt="image post" class="img-post"> -->
+                    <div class="likes">
+                        <img draggable="false" class="emoji" alt="❤" src="https://twemoji.maxcdn.com/16x16/2764.png"><span
+                            class="like-count">0</span>
+                        <button id="show-likers-btn" type="button" class="btn btn-sm btn-danger" data-toggle="popover"
+                            title="Likers:" data-content="And here's some amazing content. It's very engaging. Right?">show
+                            likers</button>
+                    </div>
+                    <!-- <div class="comments">
+                            <div class="more-comments">View more comments</div>
+                            <ul>
+                                <li><b>User1</b> Lorem Ipsum Dolor si amet</li>
+                                <li><b>User2</b> Lorem Ipsum Dolor si amet <img draggable="false" class="emoji" alt="😂" src="https://twemoji.maxcdn.com/16x16/1f602.png"></li>
+                            </ul>
+                            <form>
+                                <input type="text" class="form-control" placeholder="Add a comment">
+                            </form>
+                        </div> -->
+                </div>
 
-					<p class="cmnt-username"></p>
+            </div>
+            <hr>
+            <div class="row comments">
+                <p>
+                    <!-- show comments button -->
+                    <button id="show-cmnt-btn" value="show" class="btn btn-secondary show-cmnt-btn" type="button"
+                        data-toggle="collapse" data-target="#collapseExamples" aria-expanded="false" aria-controls="collapseExample">
+                        Show comments
+                    </button>
+                    <hr>
+                </p>
 
-				</div>
+                <div class="collapse cola" id="collapseExamples-1@1.com5">
+                    <!-- <div class="card card-body"> -->
+                    <ul id="com-container" class="comments-container">
+
+                    </ul>
+                    <!-- </div> -->
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><button id="comment-btn" type="button" class="btn btn-primary">Comment</button></span>
+                    </div>
+                    <textarea id="comment-data" class="form-control" aria-label="With textarea"></textarea>
+                </div>
+            </div>
+        </div>
+        <!-- comment template -->
+        <li class="comment-post-template container">
+            <div class="row">
+                <div class="col cmnt-left">
+
+                    <p class="cmnt-username"></p>
+
+                </div>
 
 
-			</div>
-			<div class="row">
-				<div class="col cmnt-right">
-					<p class="cmnt-data"></p>
-				</div>
-			</div>
-			<div class="row likes">
-				<img draggable="false" class="emoji" alt="❤" src="https://twemoji.maxcdn.com/16x16/2764.png"><span class="like-count">0</span>
-			</div>
-			<div id="inner" class="row">
-				
-			</div>
-			<hr>
-		</li>
+            </div>
+            <div class="row">
+                <div class="col cmnt-right">
+                    <p class="cmnt-data"></p>
+                </div>
+            </div>
+            <div class="row likes">
+                <img draggable="false" class="emoji" alt="❤" src="https://twemoji.maxcdn.com/16x16/2764.png"><span
+                    class="like-count">0</span>
+                <button id="show-likers-btn" type="button" class="btn btn-sm btn-danger" data-toggle="popover" title="Likers:"
+                    data-content="And here's some amazing content. It's very engaging. Right?">show likers</button>
+            </div>
+            <div id="inner" class="row">
 
-		<!-- inner comments template -->
-		<div id="inner-cmnt" class="row">
-				<p>
-					<!-- comment to comment button -->
-					<button id="com-to-com-btn" value="show" class="btn btn-success" type="button" data-toggle="collapse" data-target="#collapse-text" aria-expanded="false"
-					 aria-controls="collapseExample">
-						Comment
-					</button>
-					<!-- show comments of comment button -->
-					<button id="com-of-com-btn" value="show" class="btn btn-light" type="button" data-toggle="collapse" data-target="#collapse-cmnts" aria-expanded="false"
-					 aria-controls="collapseExample">
-						Show comments
-					</button>
-				</p>
-				<!-- comment to comment text area -->
-				<div class="collapse cola" id="com-to-com-input">
-					<!-- <div class="row"> -->
-						<div class="input-group">
-							<div class="input-group-prepend">
-								<span class="input-group-text"><button id="comment-btn" type="button" class="btn btn-success">Comment</button></span>
-							</div>
-							<textarea id="com-com-data" class="form-control" aria-label="With textarea"></textarea>
-						</div>
-					<!-- </div> -->
+            </div>
+            <hr>
+        </li>
 
-				</div>
-				<!-- comment of comment container -->
-				<div class="collapse cola colaa" id="com-of-com-show">
-					
-				</div>
-			</div>
+        <!-- inner comments template -->
+        <div id="inner-cmnt" class="row">
+            <p>
+                <!-- comment to comment button -->
+                <button id="com-to-com-btn" value="show" class="btn btn-success" type="button" data-toggle="collapse"
+                    data-target="#collapse-text" aria-expanded="false" aria-controls="collapseExample">
+                    Comment
+                </button>
+                <!-- show comments of comment button -->
+                <button id="com-of-com-btn" value="show" class="btn btn-light" type="button" data-toggle="collapse"
+                    data-target="#collapse-cmnts" aria-expanded="false" aria-controls="collapseExample">
+                    Show comments
+                </button>
+            </p>
+            <!-- comment to comment text area -->
+            <div class="collapse cola" id="com-to-com-input">
+                <!-- <div class="row"> -->
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><button id="comment-btn" type="button" class="btn btn-success">Comment</button></span>
+                    </div>
+                    <textarea id="com-com-data" class="form-control" aria-label="With textarea"></textarea>
+                </div>
+                <!-- </div> -->
 
-	</div>
-	<script src="../js/jquery-3.3.1.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
-	 crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
-	 crossorigin="anonymous"></script>
-	<script src="../js/moduls.js"></script>
-	<script src="../js/wall.js"></script>
-	<script src="../js/feedWall.js"></script>
+            </div>
+            <!-- comment of comment container -->
+            <div class="collapse cola colaa" id="com-of-com-show">
+            
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	 crossorigin="anonymous"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+    <script src="../js/moduls.js"></script>
+    <script src="../js/wall222.js"></script>
 </body>
-
-</html>
