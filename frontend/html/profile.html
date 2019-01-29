@@ -8,6 +8,7 @@
 </head>
 
 <body>
+	<!-- header -->
 	<header>
 		<form class="text-left-search">
 			<input type="search" placeholder="Search">
@@ -25,6 +26,7 @@
 		<div class="menu-icon second-icon"><a href="index.html">Log out</a>
 		</div>
 	</header>
+	<!-- side bar -->
 	<div class="sidebar-nav">
 		<a href="profile.html" title="Profile">
 			<img id="a-img" src="../imgs/user1.jpg" alt="User name" class="img-profile">
@@ -36,12 +38,15 @@
 			<i id="i-about-me">user status / description</i>
 		</p>
 	</div>
+	<!-- profile container -->
 	<div class="profile-container container">
 		<div class="profile-info">
 		</div>
 
 	</div>
+	<!-- hidden container for templates -->
 	<div id="hidden-container" class="container profile-container">
+		<!-- edit profile -->
 		<div id="edit-profile">
 			<br>
 			<div class="input-group">
@@ -122,7 +127,7 @@
 				</div>
 			</div>
 		</div>
-
+		<!-- show my profile -->
 		<div id="show-profile">
 			<div class="card">
 				<img id="card-img" class="card-img-top" src="../imgs/user1.jpg" alt="Card image cap">
@@ -136,6 +141,20 @@
 				</div>
 			</div>
 		</div>
+		<!-- other profile -->
+		<div id="show-other-profile">
+				<div class="card">
+					<img id="card-img" class="card-img-top" src="../imgs/user1.jpg" alt="Card image cap">
+					<div class="card-body">
+						<h3>First Name: <span id="fname-span">sasa</span></h3>
+						<h3>Last Name: <span id="lname-span">sasa</span></h3>
+						<h3>DOB: <span id="dob-span">sasa</span></h3>
+						<h3>Gender: <span id="gender-span">sasa</span></h3>
+						<h3>About me: <span id="info-span">sasa</span></h3>
+						<button id="add-friend-btn" type="button" class="btn btn-primary">Add friend</button>
+					</div>
+				</div>
+			</div>
 	</div>
 	<script src="../js/jquery-3.3.1.min.js"></script>
 	<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
