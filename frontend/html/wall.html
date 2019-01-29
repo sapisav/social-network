@@ -1,7 +1,9 @@
 <!doctype html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
         crossorigin="anonymous">
     <link href="../css/logged-in-style.css" rel="stylesheet">
@@ -60,10 +62,9 @@
                             <!-- YouTube link -->
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basic-addon3">YouTube link</span>
+                                    <span class="input-group-text" id="basic-addon3">Video link</span>
                                 </div>
-                                <input id="input-youtube-link" type="text" class="form-control" id="basic-url"
-                                    aria-describedby="basic-addon3">
+                                <input id="input-link" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
                             </div>
                             <!-- upload video -->
                             <div class="input-group mb-3">
@@ -98,7 +99,7 @@
             </div>
             <!-- <input class=".form-control" type="file" value="photo/video"> -->
             <textarea class=".form-control" placeholder="write new post" name="" id="new-post-text" rows="10"></textarea>
-            <button class="btn btn-primary" type="button" id="new-post-btn">Post</button>
+            <button class="btn-sm btn-primary" type="button" id="new-post-btn">Post</button>
 
         </div>
     </div>
@@ -125,7 +126,7 @@
             <div class="row">
                 <div class="col col-sm-8  data-post">
                     <p class="data">post data</p>
-                    <!-- <img src="../imgs/user2.jpg" alt="image post" class="img-post"> -->
+
                     <div class="likes">
                         <img draggable="false" class="emoji" alt="❤" src="https://twemoji.maxcdn.com/16x16/2764.png"><span
                             class="like-count">0</span>
@@ -133,16 +134,7 @@
                             title="Likers:" data-content="And here's some amazing content. It's very engaging. Right?">show
                             likers</button>
                     </div>
-                    <!-- <div class="comments">
-                            <div class="more-comments">View more comments</div>
-                            <ul>
-                                <li><b>User1</b> Lorem Ipsum Dolor si amet</li>
-                                <li><b>User2</b> Lorem Ipsum Dolor si amet <img draggable="false" class="emoji" alt="😂" src="https://twemoji.maxcdn.com/16x16/1f602.png"></li>
-                            </ul>
-                            <form>
-                                <input type="text" class="form-control" placeholder="Add a comment">
-                            </form>
-                        </div> -->
+
                 </div>
 
             </div>
@@ -231,10 +223,19 @@
             </div>
             <!-- comment of comment container -->
             <div class="collapse cola colaa" id="com-of-com-show">
-            
+
             </div>
         </div>
+        <div id="youtube">
+            <iframe id="i-frame" width="560" height="315" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </div>
 
+        <video id="vid" width="560" height="315" controls>
+            <source id="vid-src">
+            Your browser does not support HTML5 video.
+        </video>
+        <img class="img-fluid" id="img" alt="image">
     </div>
 
 

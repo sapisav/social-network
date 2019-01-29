@@ -35,30 +35,41 @@ function bindPostsToTemplate(posts) {
         postTemplate.find(".show-cmnt-btn").attr('data-target', `#collapse-${collapseID}`);
         postTemplate.find('.cola').attr('id', `collapse-${collapseID++}`);
         postTemplate.find('.data').html(posts[i].data);
+        if(posts[i].link != null){
+            postTemplate.find('.data').append(createIframe(posts[i].link));
+        }
+        if(posts[i].pic != null){
+            postTemplate.find('.data').append(createImage(posts[i].pic));
+        }
+        
+        if(posts[i].video != null){
+            postTemplate.find('.data').append(createVideo(posts[i].video));
+        }
         postTemplate.find('creationTime').html(posts[i].creationTime);
         postTemplate.find('.like-count').html(posts[i].likes);
 
-        postTemplate.find('#show-likers-btn').attr('data-content', `${getLikers(posts[i].likers)}`);//
-        
+        postTemplate.find('#show-likers-btn').attr('data-content', `${getLikers(posts[i].likers)}`); //
+
         addPostEvents(postTemplate, posts[i]);
-        
+
 
         loadCom(postTemplate, posts[i].postID);
 
         $('#psts').prepend(postTemplate);
     }
     $('[data-toggle="popover"]').popover({
-        html: true}
-    );
-    
-        
-      
+        html: true
+    });
+
+
+
 }
 /* POST EVENTS */
 function addPostEvents(postTemplate, post) {
     /* Comment to post */
     postTemplate.find('#comment-btn').on('click', function () {
         let commentData = postTemplate.find('textarea#comment-data').val();
+        postTemplate.find('textarea#comment-data').val('');
         if (commentData.length == 0) {
             //alret empty
         } else {
@@ -75,7 +86,7 @@ function addPostEvents(postTemplate, post) {
                     updateServer();
                     console.log(postTemplate);
                     postTemplate.find('#show-cmnt-btn').css('display', 'inline');
-                    bindComsToTemplate([newComment], postTemplate);
+                    bindComsToTemplate([res], postTemplate);
                     // loadComments(postID, post); appen new comm
                     // loadThisComment(post, newComment);
                     // commentData.val('');
@@ -87,6 +98,7 @@ function addPostEvents(postTemplate, post) {
     });
     /* like to post */
     postTemplate.find('.emoji').on('click', function (ev) {
+        console.log("like");
         let notification;
         if (post.likers.includes(currentUser.userName)) {
             post.likers.pop(currentUser.userName);
@@ -171,18 +183,18 @@ function bindComsToTemplate(comments, postTemplate) {
         postTemplate.find('#com-container').append(commentTemplate);
     }
     $('[data-toggle="popover"]').popover({
-        html: true}
-    );
+        html: true
+    });
 }
 /* COMMENT OF POST EVENTS */
 function addCommentEvents(commentTemplate, comment) {
     /* comment to comment */
     commentTemplate.find('#comment-btn').on('click', function () {
         let commentData = commentTemplate.find('#com-com-data').val();
-        
+
         if (commentData.length == 0) {
             //alret empty
-            
+
         } else {
             postID = commentTemplate.attr('id');
             let newComment = new Comment(currentUser, commentData, postID);
@@ -197,7 +209,7 @@ function addCommentEvents(commentTemplate, comment) {
                     commentTemplate.find('#com-com-data').val(''); // avoid multiple clicks
                     updateServer();
                     commentTemplate.find('#com-of-com-btn').css('display', 'inline'); // in case of first comment
-                    bindCommentsOfCommentToTemplate([newComment], commentTemplate);
+                    bindCommentsOfCommentToTemplate([res], commentTemplate);
                 })
                 .fail(function (err) {
                     console.log(err);
@@ -205,7 +217,7 @@ function addCommentEvents(commentTemplate, comment) {
         }
     })
     /* show/hide comments of comment */
-    commentTemplate.find('#com-to-com-btn').on('click', function(ev){
+    commentTemplate.find('#com-to-com-btn').on('click', function (ev) {
         if (ev.currentTarget.value == 'show') {
             ev.currentTarget.value = 'hide';
             ev.currentTarget.innerHTML = 'Hide';
@@ -215,7 +227,7 @@ function addCommentEvents(commentTemplate, comment) {
         }
     })
     /* show/hide comments to comment */
-    commentTemplate.find('#com-of-com-btn').on('click', function(ev){
+    commentTemplate.find('#com-of-com-btn').on('click', function (ev) {
         if (ev.currentTarget.value == 'show') {
             ev.currentTarget.value = 'hide';
             ev.currentTarget.innerHTML = 'Hide comments';
@@ -239,10 +251,10 @@ function addCommentEvents(commentTemplate, comment) {
         updateLikes(ev, 'comments', comment, notification);
 
     });
-    
+
 }
 
-function loadCommentsOfComment(commentID, commentTemplate){
+function loadCommentsOfComment(commentID, commentTemplate) {
     $.get(`${URL}/comments?postID=${commentID}`)
         .done(function (response) {
             if (response.length > 0) {
@@ -252,8 +264,8 @@ function loadCommentsOfComment(commentID, commentTemplate){
         })
 }
 /* COMMENT OF COMMENT EVENTS */
-function bindCommentsOfCommentToTemplate(commentsOfComment, commentTemplate){
-    for(let i = 0; i<commentsOfComment.length; i++){
+function bindCommentsOfCommentToTemplate(commentsOfComment, commentTemplate) {
+    for (let i = 0; i < commentsOfComment.length; i++) {
         let commentOfCommentTemplate = $(createCommentHtmlTemplate());
         commentOfCommentTemplate.find('.cmnt-username').text(commentsOfComment[i].userName);
         commentOfCommentTemplate.find('.cmnt-data').text(commentsOfComment[i].data);
@@ -262,16 +274,16 @@ function bindCommentsOfCommentToTemplate(commentsOfComment, commentTemplate){
         commentOfCommentTemplate.attr('id', commentsOfComment[i].commentID);
         addCommentOfCommentsEvents(commentOfCommentTemplate, commentsOfComment[i]);
         commentTemplate.find('.colaa').addClass('com-of-com').append(commentOfCommentTemplate);
-        
-        
+
+
     }
     $('[data-toggle="popover"]').popover({
-        html: true}
-    );
-  
+        html: true
+    });
+
 }
 
-function addCommentOfCommentsEvents(commentOfCommentTemplate, commentOfComment){
+function addCommentOfCommentsEvents(commentOfCommentTemplate, commentOfComment) {
     commentOfCommentTemplate.find('.emoji').on('click', function (ev) {
         let notification;
         if (commentOfComment.likers.includes(currentUser.userName)) {
@@ -291,15 +303,35 @@ function addCommentOfCommentsEvents(commentOfCommentTemplate, commentOfComment){
 }
 
 $('#new-post-btn').on('click', function () {
-    
+
     let postData = $('#new-post-text').val();
+    let link = null;
+    let image = null;
+    let video = null;
+    if ($('#input-link').val().length != 0){
+        link = $('#input-link').val().split('=');
+        link = link[link.length-1];
+        
+    }
+    if ($('#input-image').val() != 0) {
+        image = $('#input-image').val().split('\\');
+        image = image[image.length - 1];
+        image = `../imgs/${image}`;
+    }
+    if ($('#input-video').val() != 0) {
+        video = $('#input-video').val().split('\\');
+        video = video[video.length - 1];
+        video = `../imgs/${video}`;
+    }
+    $('#input-video').val('');
+    $('#input-link').val('');
+    $('#input-image').val('');
     $('#new-post-text').val('');
     if (postData.length == 0) {
         //alert
-        
+
     } else {
-        let newPost = new Post(currentUser, postData); //currentUser.postCount++;
-        //create comment obj ?
+        let newPost = new Post(currentUser, postData, video, image, link);
         $.ajax({
                 type: 'POST',
                 url: `${URL}/posts`,
@@ -312,7 +344,8 @@ $('#new-post-btn').on('click', function () {
                 currentUser.postCount++;
                 updateServer();
                 // loadMyPosts();
-                bindPostsToTemplate([newPost]);
+                // console.log(res);
+                bindPostsToTemplate([res]);
             })
             .fail(function (err) {
                 console.log(err);

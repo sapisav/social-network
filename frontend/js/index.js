@@ -37,9 +37,10 @@ async function validateUsernameAndPw(){
 		.then(function (response) {
 			return response.json();})
 		.catch(error => console.error('Error:', error));
-		localStorage.setItem("postsCount", count.length);
-		localStorage.setItem("logged-in-as", `${user[0].userName}`);
+		// localStorage.setItem("postsCount", count.length);
+		// localStorage.setItem("logged-in-as", `${user[0].userName}`);
 		localStorage.setItem("userObject",JSON.stringify(user[0]));
+		localStorage.setItem('profile-of', user[0].userName);
 		if(user[0].initProfile)
 			location.href = "feed.html";
 		else location.href = "profile.html";

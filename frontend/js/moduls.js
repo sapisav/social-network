@@ -46,28 +46,36 @@ class User {
 }
 
 class Post {
-    constructor(currentUser, data) {
+    constructor(currentUser, data, video = null, pic = null, link = null) {
         this.userName = currentUser.userName;
+        this.fullName = currentUser.firstName + " " + currentUser.lastName;
         this.data = data;
         this.userProfile = 'userProfile';//fix
         this.postID = "P"+currentUser.userName + parseInt(currentUser.postCount);
         this.likes = 0;
         this.likers = [];
-        this.creationTime = Date.now().toString();
+        this.creationTime = new Date();
+        this.video = video;
+        this.pic = pic;
+        this.link = link;
         // this.hasComments = false;
     }
 }
 
 class Comment {
-    constructor(currentUser, data, postID) {
+    constructor(currentUser, data, postID, fullName, video = null, pic = null, link = null) {
         this.userName = currentUser.userName;
+        this.fullName = fullName;
         this.data = data;
         this.userProfile = 'userProfile';//fix
         this.commentID = "C"+currentUser.userName + parseInt(currentUser.commentCount);
         this.postID = postID;
         this.likes = 0;
         this.likers = [];
-        this.creationTime = Date.now().toString();
+        this.creationTime = new Date();
+        this.video = video;
+        this.pic = pic;
+        this.link = link;
         // this.hasComments = false;
     }
 }
@@ -88,6 +96,25 @@ function createCommentOfCommentHtmlTemplate() {
     let commentCommentHtmlTemplate = document.querySelector("#post-template").querySelector("#inner-cmnt");
     let clonedTemplate = commentCommentHtmlTemplate.cloneNode(true);
     return clonedTemplate;
+}
+
+function createIframe(link){
+    let iFrame = document.querySelector("#post-template").querySelector("#i-frame");
+    clonedIframe = iFrame.cloneNode(true);
+    clonedIframe.setAttribute('src', "https://www.youtube.com/embed/" + link);
+    return clonedIframe;
+}
+function createImage(link){
+    let image = document.querySelector("#post-template").querySelector("#img");
+    clonedImage = image.cloneNode(true);
+    clonedImage.setAttribute('src', link);
+    return clonedImage;
+}
+function createVideo(link){
+    let video = document.querySelector("#post-template").querySelector("#vid");
+    clonedVideo = video.cloneNode(true);
+    clonedVideo.querySelector('#vid-src').setAttribute('src', link);
+    return clonedVideo;
 }
 
 function updateLocalStorage(currentUser) {
@@ -111,4 +138,26 @@ function deleteAccount(currentUser){
            location.href = 'index.html';
         }
     });
+}
+
+function getLikers(list){
+    let htmlString = '';
+    for(let i = 0; i< list.length; i++){
+        let $a = document.createElement('a');
+        $a.href = '#';
+        $a.setAttribute('class', 'profile-of-user');
+        $a.setAttribute('username', `${list[i]}`);
+        $a.setAttribute('onclick', 'linkToProfile(event);');
+        $a.style.display = 'block';
+        $a.innerHTML = list[i];
+        htmlString+= $a.outerHTML;
+
+    }
+    return htmlString;
+}
+
+function linkToProfile(ev){
+    localStorage.setItem('profile-of', ev.currentTarget.getAttribute('username'));
+    // location.href = 'profile.html';
+    // console.log('wow');
 }
