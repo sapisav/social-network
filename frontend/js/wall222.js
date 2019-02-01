@@ -2,6 +2,8 @@ let currentUser = JSON.parse(localStorage.getItem('userObject'));
 let collapseID = 0;
 loadSideBar(currentUser);
 loadPosts();
+
+//branchcheack
 /* ### FLOW of loadPosts(); ###
 send GET request to get all posts of current user
     for each post:
