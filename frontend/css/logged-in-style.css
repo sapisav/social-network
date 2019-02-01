@@ -32,7 +32,7 @@ header {
     z-index: 9;
 }
 
-form {
+#search-div {
     display: block;
     float: left;
     margin-left: 40px;
@@ -136,7 +136,7 @@ header .second-icon {
     background: #ffffff;
     padding: 15px;
     display: block;
-    overflow: hidden;
+    /* overflow: hidden; */
     margin-bottom: 15px;
     border-radius: 8px;
 }
@@ -185,9 +185,10 @@ header .second-icon {
 
 .emoji {
     width: 16px;
-    height: auto;
+    height: 16px;
     vertical-align: middle;
     border: 0;
+    cursor: pointer;
 }
 
 .comments .more-comments {
@@ -282,7 +283,7 @@ a {
     width: 60%;
     /* height: 750px; */
     margin-left: 255px;
-    margin-top: 65px;
+    margin-top: 10%;
     border-radius: 10px;
     align-content: center;
 }
@@ -328,8 +329,15 @@ a {
     margin-left: 1px;
     display: inline;
 }
-.c-of-c{
-    margin-left: 15%;
+.com-of-com{
+    margin-left: 20%;
 }
 
+#show-likers-btn{
+    margin-left: 2%;
+}
 
+#add-item-btn{
+    margin-top: 2px;
+    padding-top: 2px;
+}

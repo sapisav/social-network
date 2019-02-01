@@ -92,7 +92,7 @@ function createCommentHtmlTemplate() {
     return clonedTemplate;
 }
 
-function createCommentOfCommentHtmlTemplate() {
+function createCommentOfCommentHtmlTemplate() { // TODO: change name
     let commentCommentHtmlTemplate = document.querySelector("#post-template").querySelector("#inner-cmnt");
     let clonedTemplate = commentCommentHtmlTemplate.cloneNode(true);
     return clonedTemplate;

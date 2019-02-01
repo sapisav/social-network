@@ -12,7 +12,7 @@ $editProfile.querySelector('#update-btn').onclick = function () {
     if (!currentUser.initProfile) currentUser.initProfile = true; //first time user edit profile
     currentUser.firstName = $('#input-fname').val();
     currentUser.lastName = $('#input-lname').val();
-    tmp = $('#input-pic').val().split('\\');
+    let tmp = $('#input-pic').val().split('\\');
     tmp = tmp[tmp.length - 1];
     currentUser.pic = `../imgs/${tmp}`;
     console.log(tmp);

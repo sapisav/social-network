@@ -352,3 +352,9 @@ $('#new-post-btn').on('click', function () {
             });
     }
 })
+
+$('#search-input').keyup(function(ev){
+    if(ev.keyCode === 13){
+        console.log(ev.currentTarget.value);
+    }
+});
