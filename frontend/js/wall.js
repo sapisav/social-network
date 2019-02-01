@@ -233,7 +233,7 @@ function bindEvents(post) {
     })
 
     // like event
-
+        $('.emoji').on('click', like);
 
     //
 
@@ -289,6 +289,7 @@ function updateServer() { // update profile info
     });
 }
 
-// loadThisComment(post, newComment){
-
-// }
+function like(e){
+    let likes = $(e.currentTarget).next().text();
+    $(e.currentTarget).next().text(++likes)
+}

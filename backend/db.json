@@ -483,6 +483,20 @@
       "pic": null,
       "link": null,
       "id": 36
+    },
+    {
+      "userName": "s@s.com",
+      "fullName": "SHLOMI FEFE",
+      "data": "////////////",
+      "userProfile": "userProfile",
+      "postID": "Ps@s.com22",
+      "likes": 0,
+      "likers": [],
+      "creationTime": "2019-02-01T13:51:54.092Z",
+      "video": null,
+      "pic": null,
+      "link": null,
+      "id": 37
     }
   ],
   "comments": [
@@ -1340,6 +1354,18 @@
       "password": "1234",
       "firstName": "SHLOMI",
       "lastName": "FEFE",
+      "friendsRequests": [
+        "x@x.com"
+      ],
+      "sentFriendRequest": [],
+      "notifactions": [
+        {
+          "senderName": "sapir savion",
+          "senderUserName": "x@x.com",
+          "msg": "Sent a friend request"
+        }
+      ],
+      "notifactionsToSee": 0,
       "pic": "../imgs/user2.jpg",
       "role": "regular",
       "userInfo": "userInfo",
@@ -1348,7 +1374,7 @@
       "initProfile": true,
       "gender": "Male",
       "dob": "2019-03-06",
-      "postCount": 22,
+      "postCount": 23,
       "commentCount": 39,
       "id": 8,
       "info": "IM SHLOMI FEFE"
@@ -1363,6 +1389,12 @@
       "userInfo": "userInfo",
       "privacy": "public",
       "friends": [],
+      "friendsRequests": [],
+      "sentFriendRequest": [
+        "s@s.com"
+      ],
+      "notifactions": [],
+      "notifactionsToSee": 0,
       "initProfile": true,
       "gender": "Male",
       "dob": "2003-08-07",

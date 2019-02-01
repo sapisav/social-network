@@ -1,5 +1,6 @@
 let currentUser = JSON.parse(localStorage.getItem('userObject'));
 let profileOf = localStorage.getItem('profile-of'); //
+let otherUser = null;
 let $profileInfo = document.querySelector(".profile-info");
 let $hiddenContainer = document.querySelector("#hidden-container");
 let $showProfile = $hiddenContainer.querySelector("#show-profile");
@@ -78,6 +79,7 @@ loadSideBar(currentUser);
 function getOtherProfile() {
     $.get(`${URL}/users?userName=${profileOf}`)
         .done(function (response) {
+            otherUser = response[0];
             $otherProfile.querySelector('#fname-span').innerHTML = response[0].firstName;
             $otherProfile.querySelector('#lname-span').innerHTML = response[0].lastName;
             $otherProfile.querySelector('#dob-span').innerHTML = response[0].dob;
@@ -98,4 +100,33 @@ $('#delete-btn').on('click', function () {
 $('#cancel-btn').on('click', function () {
     $hiddenContainer.append($editProfile);
     $profileInfo.append($showProfile);
+})
+
+$('#add-friend-btn').on('click', function (ev) {
+    if (!otherUser.friendsRequests.includes(currentUser.userName)) {
+        otherUser.friendsRequests.push(currentUser.userName);
+        let newNotifaction = new MyNotification(currentUser, 'Sent a friend request');
+        otherUser.notifactions.push(newNotifaction);
+        otherUser.notifactionsToSee++;
+        $.ajax({
+            url: `${URL}/users/${otherUser.id}`,
+            type: 'PUT',
+            data: JSON.stringify(otherUser),
+            contentType: 'application/json',
+    
+        }).done(function (res) {
+            ev.currentTarget.innerHTML = 'Sent'
+            currentUser.sentFriendRequest.push(otherUser.userName);
+            updateLocalStorage(currentUser);
+            updateServer();
+            // updateProfile();
+            // $profileInfo.append($showProfile);
+            //succes alert
+        }).fail(function (err) {
+    
+            console.log(err);
+        });
+        
+    }
+
 })

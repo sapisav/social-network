@@ -1,10 +1,11 @@
 let currentUser = JSON.parse(localStorage.getItem('userObject'));
 let collapseID = 0;
 loadSideBar(currentUser);
+toMyProfile(currentUser);
 loadPosts();
+notifyNotifications(currentUser);
 
-//branchcheack
-/* ### FLOW of loadPosts(); ###
+/* ### FLOW of loadPosts(); - like DFS algo ###
 send GET request to get all posts of current user
     for each post:
         than: bind post to template
@@ -37,14 +38,14 @@ function bindPostsToTemplate(posts) {
         postTemplate.find(".show-cmnt-btn").attr('data-target', `#collapse-${collapseID}`);
         postTemplate.find('.cola').attr('id', `collapse-${collapseID++}`);
         postTemplate.find('.data').html(posts[i].data);
-        if(posts[i].link != null){
+        if (posts[i].link != null) {
             postTemplate.find('.data').append(createIframe(posts[i].link));
         }
-        if(posts[i].pic != null){
+        if (posts[i].pic != null) {
             postTemplate.find('.data').append(createImage(posts[i].pic));
         }
-        
-        if(posts[i].video != null){
+
+        if (posts[i].video != null) {
             postTemplate.find('.data').append(createVideo(posts[i].video));
         }
         postTemplate.find('creationTime').html(posts[i].creationTime);
@@ -310,10 +311,10 @@ $('#new-post-btn').on('click', function () {
     let link = null;
     let image = null;
     let video = null;
-    if ($('#input-link').val().length != 0){
+    if ($('#input-link').val().length != 0) {
         link = $('#input-link').val().split('=');
-        link = link[link.length-1];
-        
+        link = link[link.length - 1];
+
     }
     if ($('#input-image').val() != 0) {
         image = $('#input-image').val().split('\\');
@@ -355,8 +356,37 @@ $('#new-post-btn').on('click', function () {
     }
 })
 
-$('#search-input').keyup(function(ev){
-    if(ev.keyCode === 13){
-        console.log(ev.currentTarget.value);
+$('#search-input').keyup(function (ev) {
+    if (ev.keyCode === 13) {
+        searchForUsers(ev.currentTarget.value);
     }
 });
+
+function searchForUsers(fullName) {
+    let resultsContainer = $('#show-friends-data');
+    resultsContainer.html('');
+    fullName = fullName.split(' ');
+    if (fullName.length === 1) {
+        $.get(`${URL}/users?firstName=${fullName[0]}`)
+            .done(function (response) {
+                for (let i = 0; i < response.length; i++) {
+                    resultsContainer.append(createFriendTemplate(response[i]));
+                }
+            })
+    } else {
+        $.get(`${URL}/users?firstName=${fullName[0]}&lastName=${fullName[1]}`)
+            .done(function (response) {
+                for (let i = 0; i < response.length; i++) {
+                    resultsContainer.append(createFriendTemplate(response[i]));
+                }
+            })
+    }
+    $('#show-friends-modal').modal('toggle');
+}
+
+$('#notifaction').on('click', function(){
+    currentUser.notifactionsToSee = 0;
+    updateServer();
+
+    $('#notifaction-modal').modal('toggle');
+})

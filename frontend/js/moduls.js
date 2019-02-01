@@ -9,7 +9,11 @@ class User {
         this.role = 'regular';
         this.userInfo = 'userInfo';
         this.privacy = 'public';
+        this.friendsRequests = [];
         this.friends = [];
+        this.sentFriendRequest = [];
+        this.notifactions = [];
+        this.notifactionsToSee = 0;
         this.initProfile = false;
         this.gender = 'gender';
         this.dob = 'dob';
@@ -50,8 +54,8 @@ class Post {
         this.userName = currentUser.userName;
         this.fullName = currentUser.firstName + " " + currentUser.lastName;
         this.data = data;
-        this.userProfile = 'userProfile';//fix
-        this.postID = "P"+currentUser.userName + parseInt(currentUser.postCount);
+        this.userProfile = 'userProfile'; //fix
+        this.postID = "P" + currentUser.userName + parseInt(currentUser.postCount);
         this.likes = 0;
         this.likers = [];
         this.creationTime = new Date();
@@ -67,8 +71,8 @@ class Comment {
         this.userName = currentUser.userName;
         this.fullName = fullName;
         this.data = data;
-        this.userProfile = 'userProfile';//fix
-        this.commentID = "C"+currentUser.userName + parseInt(currentUser.commentCount);
+        this.userProfile = 'userProfile'; //fix
+        this.commentID = "C" + currentUser.userName + parseInt(currentUser.commentCount);
         this.postID = postID;
         this.likes = 0;
         this.likers = [];
@@ -98,51 +102,64 @@ function createCommentOfCommentHtmlTemplate() { // TODO: change name
     return clonedTemplate;
 }
 
-function createIframe(link){
+function createIframe(link) {
     let iFrame = document.querySelector("#post-template").querySelector("#i-frame");
     clonedIframe = iFrame.cloneNode(true);
     clonedIframe.setAttribute('src', "https://www.youtube.com/embed/" + link);
     return clonedIframe;
 }
-function createImage(link){
+
+function createImage(link) {
     let image = document.querySelector("#post-template").querySelector("#img");
     clonedImage = image.cloneNode(true);
     clonedImage.setAttribute('src', link);
     return clonedImage;
 }
-function createVideo(link){
+
+function createVideo(link) {
     let video = document.querySelector("#post-template").querySelector("#vid");
     clonedVideo = video.cloneNode(true);
     clonedVideo.querySelector('#vid-src').setAttribute('src', link);
     return clonedVideo;
 }
 
+function createFriendTemplate(user) {
+    let friendTemplate = document.querySelector("#post-template").querySelector("#friend-template").cloneNode(true);
+    friendTemplate.querySelector('img').setAttribute('src', user.pic);
+    friendTemplate.querySelector('#full-name-search-friends').innerHTML = `${user.firstName} ${user.lastName}`;
+    friendTemplate.querySelector('#full-name-search-friends').onclick = function () {
+        localStorage.setItem('profile-of', user.userName);
+        location.href = 'profile.html';
+    }
+    return friendTemplate;
+}
+
 function updateLocalStorage(currentUser) {
     localStorage.setItem('userObject', JSON.stringify(currentUser));
 }
 
-function loadSideBar(currentUser){
+function loadSideBar(currentUser) {
     let $sideBar = $('.sidebar-nav');
     $sideBar.find('#a-img').attr('src', currentUser.pic);
     $sideBar.find('#a-full-name').text(`${currentUser.firstName} ${currentUser.lastName}`);
     $sideBar.find('#i-about-me').text(`${currentUser.info}`);
-   
+
 
 }
 
-function deleteAccount(currentUser){
+function deleteAccount(currentUser) {
     $.ajax({ // need to delete also all posts and comments
         url: `${URL}/users/${currentUser.id}`,
         type: 'DELETE',
-        success: function(result) {
-           location.href = 'index.html';
+        success: function (result) {
+            location.href = 'index.html';
         }
     });
 }
 
-function getLikers(list){
+function getLikers(list) {
     let htmlString = '';
-    for(let i = 0; i< list.length; i++){
+    for (let i = 0; i < list.length; i++) {
         let $a = document.createElement('a');
         $a.href = '#';
         $a.setAttribute('class', 'profile-of-user');
@@ -150,14 +167,54 @@ function getLikers(list){
         $a.setAttribute('onclick', 'linkToProfile(event);');
         $a.style.display = 'block';
         $a.innerHTML = list[i];
-        htmlString+= $a.outerHTML;
+        htmlString += $a.outerHTML;
 
     }
     return htmlString;
 }
 
-function linkToProfile(ev){
+function linkToProfile(ev) {
     localStorage.setItem('profile-of', ev.currentTarget.getAttribute('username'));
     // location.href = 'profile.html';
     // console.log('wow');
+}
+
+function toMyProfile(currentUser) {
+    $('#my-profile-header').on('click', function () {
+        localStorage.setItem('profile-of', currentUser.userName);
+        location.href = 'profile.html';
+    })
+}
+
+function notifyNotifications(currentUser) {
+    if (currentUser.notifactionsToSee > 0) {
+        $('#new-notifications').text(currentUser.notifactionsToSee);
+    } else {
+        $('#new-notifications').text('');
+    }
+    let notificationsContainer = $('#show-notification-data');
+    for (let i = 0; i < currentUser.notifactions.length; i++) {
+        notificationsContainer.append(createNotificationTemplate(currentUser.notifactions[i]));
+    }
+
+}
+
+class MyNotification {
+    constructor(from, msg) {
+        this.senderName = `${from.firstName} ${from.lastName}`;
+        this.senderUserName = from.userName;
+        this.msg = msg;
+    }
+}
+
+function createNotificationTemplate(notification) {
+    let notificationTemplate = document.querySelector("#post-template").querySelector("#notification-template").cloneNode(true);
+    notificationTemplate.querySelector('img').setAttribute('src', 'https://image.shutterstock.com/image-vector/new-friend-outline-social-media-450w-659921749.jpg');
+    notificationTemplate.querySelector('#full-name-notification').innerHTML = notification.senderName;
+    notificationTemplate.querySelector('#msg-notification').innerHTML = notification.msg;
+    notificationTemplate.querySelector('#full-name-notification').onclick = function () {
+        localStorage.setItem('profile-of', notification.senderUserName);
+        location.href = 'profile.html';
+    }
+    return notificationTemplate;
 }
