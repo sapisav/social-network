@@ -25,7 +25,7 @@ async function validateUsernameAndPw(){
         }).catch(error => console.log(error));
 
     
-    if(user[0] == undefined){
+    if(user.length == 0){
 		showAlert(true);
 		
 	}

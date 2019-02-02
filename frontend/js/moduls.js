@@ -218,3 +218,44 @@ function createNotificationTemplate(notification) {
     }
     return notificationTemplate;
 }
+
+$('#search-input').keyup(function (ev) {
+    if (ev.keyCode === 13) {
+        searchForUsers(ev.currentTarget.value);
+    }
+});
+
+function searchForUsers(fullName) {
+    let resultsContainer = $('#show-friends-data');
+    resultsContainer.html('');
+    fullName = fullName.split(' ');
+    if (fullName.length === 1) {
+        $.get(`${URL}/users?firstName=${fullName[0]}`)
+            .done(function (response) {
+                for (let i = 0; i < response.length; i++) {
+                    resultsContainer.append(createFriendTemplate(response[i]));
+                }
+            })
+    } else {
+        $.get(`${URL}/users?firstName=${fullName[0]}&lastName=${fullName[1]}`)
+            .done(function (response) {
+                for (let i = 0; i < response.length; i++) {
+                    resultsContainer.append(createFriendTemplate(response[i]));
+                }
+            })
+    }
+    $('#show-friends-modal').modal('toggle');
+}
+$('#notifaction').on('click', function () {
+    currentUser.notifactionsToSee = 0;
+    updateServer();
+    $('#new-notifications').html('');
+    $('#notifaction-modal').modal('toggle');
+})
+/* find item inside array and delete it */
+function findAndDelete(arr, item) {
+    let index = arr.indexOf(item);
+    if (index != -1) {
+        arr.splice(index, 1)
+    }
+}

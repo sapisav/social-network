@@ -1,4 +1,10 @@
 let currentUser = JSON.parse(localStorage.getItem('userObject'));
+$.get(`${URL}/users/${currentUser.id}`)
+    .done(function (res) {
+        updateLocalStorage(res);
+        currentUser = JSON.parse(localStorage.getItem('userObject'));
+        notifyNotifications(currentUser);
+    });
 let profileOf = localStorage.getItem('profile-of'); //
 let otherUser = null;
 let $profileInfo = document.querySelector(".profile-info");
@@ -89,7 +95,7 @@ function getOtherProfile() {
             $otherProfile.querySelector('#card-img').setAttribute('src', response[0].pic);
             $profileInfo.append($otherProfile);
             //current user got new friend request from other user
-            if (currentUser.friendsRequests.includes(otherUser.userName)) { 
+            if (currentUser.friendsRequests.includes(otherUser.userName)) {
                 $('#add-friend-btn').css('display', 'none');
                 $('#accept-friend-btn').css('display', 'inline');
                 //current user and other are friends
@@ -101,8 +107,8 @@ function getOtherProfile() {
                 $('#add-friend-btn').html('Cancel friend request');
             }
             //current user and other user did nothing
-            else{
-                
+            else {
+
             }
         })
 }
@@ -151,7 +157,7 @@ $('#add-friend-btn').on('click', function (ev) {
         currentUser.sentFriendRequest.splice(index, 1);
         index = otherUser.friendsRequests.indexOf(currentUser.userName);
         otherUser.friendsRequests.splice(index, 1);
-        updateFriendship(currentUser, otherUser, ev,'cancel friend request');
+        updateFriendship(currentUser, otherUser, ev, 'cancel friend request');
     }
 
 })
@@ -221,4 +227,46 @@ $('#un-friend-btn').on('click', function (ev) {
 
     updateFriendship(currentUser, otherUser, ev, 'unfriend');
 
+})
+
+$('#my-friends-btn').on('click', function () {
+    if (otherUser.friends.length === 0);
+    else {
+        let friendsContainer = $('#my-friends-data');
+        friendsContainer.html('');
+        let str = '?'
+        for (let i = 0; i < currentUser.friends.length; i++) {
+            str += `userName=${currentUser.friends[i]}&`; // i know its almost the worst way to get all friends
+            // but cant find other way because my db design
+        }
+        str = str.substring(0, str.length - 1)
+        $.get(`${URL}/users${str}`)
+            .done(function (res) {
+                for (let i = 0; i < res.length; i++) {
+                    friendsContainer.append(createFriendTemplate(res[i]));
+                }
+            })
+    }
+})
+
+$('#other-friends-btn').on('click', function () {
+    if (otherUser.friends.length === 0);
+    else {
+        let friendsContainer = $('#my-friends-data');
+        friendsContainer.html('');
+        let str = '?'
+        for (let i = 0; i < otherUser.friends.length; i++) {
+            str += `userName=${otherUser.friends[i]}&`; // i know its almost the worst way to get all friends
+            // but cant find other way because my db design
+
+        }
+        str = str.substring(0, str.length - 1)
+
+        $.get(`${URL}/users${str}`)
+            .done(function (res) {
+                for (let i = 0; i < res.length; i++) {
+                    friendsContainer.append(createFriendTemplate(res[i]));
+                }
+            })
+    }
 })

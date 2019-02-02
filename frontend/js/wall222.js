@@ -1,10 +1,15 @@
 let currentUser = JSON.parse(localStorage.getItem('userObject'));
-$.get(`${URL}/users/${currentUser.id}`).done(function(res){updateLocalStorage(res);});
+$.get(`${URL}/users/${currentUser.id}`)
+    .done(function (res) {
+        updateLocalStorage(res);
+        currentUser = JSON.parse(localStorage.getItem('userObject'));
+        notifyNotifications(currentUser);
+    });
 let collapseID = 0;
 loadSideBar(currentUser);
 toMyProfile(currentUser);
 loadPosts();
-notifyNotifications(currentUser);
+
 
 /* ### FLOW of loadPosts(); - like DFS algo ###
 send GET request to get all posts of current user
@@ -88,7 +93,7 @@ function addPostEvents(postTemplate, post) {
                 }).done(function (res) {
                     currentUser.commentCount++;
                     updateServer();
-                    
+
                     console.log(postTemplate);
                     postTemplate.find('#show-cmnt-btn').css('display', 'inline');
                     bindComsToTemplate([res], postTemplate);
@@ -106,7 +111,7 @@ function addPostEvents(postTemplate, post) {
         console.log("like");
         let notification;
         if (post.likers.includes(currentUser.userName)) {
-            post.likers.pop(currentUser.userName);
+            findAndDelete(post.likers, currentUser.userName);
             post.likes--;
             notification = `${currentUser.userName} liked ur post`;
         } else {
@@ -246,7 +251,7 @@ function addCommentEvents(commentTemplate, comment) {
     commentTemplate.find('.emoji').on('click', function (ev) {
         let notification;
         if (comment.likers.includes(currentUser.userName)) {
-            comment.likers.pop(currentUser.userName);
+            findAndDelete(comment.likers, currentUser.userName);
             comment.likes--;
             notification = `${currentUser.userName} liked ur post`;
         } else {
@@ -293,13 +298,13 @@ function addCommentOfCommentsEvents(commentOfCommentTemplate, commentOfComment) 
     commentOfCommentTemplate.find('.emoji').on('click', function (ev) {
         let notification;
         if (commentOfComment.likers.includes(currentUser.userName)) {
-            commentOfComment.likers.pop(currentUser.userName);
+            findAndDelete(commentOfComment.likers, currentUser.userName);
             commentOfComment.likes--;
-            notification = `${currentUser.userName} liked ur post`;
+            notification = `${currentUser.userName} unliked ur post`;
         } else {
             commentOfComment.likers.push(currentUser.userName);
             commentOfComment.likes++;
-            notification = `${currentUser.userName} unliked ur post`;
+            notification = `${currentUser.userName} liked ur post`;
         }
         updateLikes(ev, 'comments', commentOfComment, notification);
 
@@ -359,37 +364,5 @@ $('#new-post-btn').on('click', function () {
     }
 })
 
-$('#search-input').keyup(function (ev) {
-    if (ev.keyCode === 13) {
-        searchForUsers(ev.currentTarget.value);
-    }
-});
 
-function searchForUsers(fullName) {
-    let resultsContainer = $('#show-friends-data');
-    resultsContainer.html('');
-    fullName = fullName.split(' ');
-    if (fullName.length === 1) {
-        $.get(`${URL}/users?firstName=${fullName[0]}`)
-            .done(function (response) {
-                for (let i = 0; i < response.length; i++) {
-                    resultsContainer.append(createFriendTemplate(response[i]));
-                }
-            })
-    } else {
-        $.get(`${URL}/users?firstName=${fullName[0]}&lastName=${fullName[1]}`)
-            .done(function (response) {
-                for (let i = 0; i < response.length; i++) {
-                    resultsContainer.append(createFriendTemplate(response[i]));
-                }
-            })
-    }
-    $('#show-friends-modal').modal('toggle');
-}
 
-$('#notifaction').on('click', function(){
-    currentUser.notifactionsToSee = 0;
-    updateServer();
-    $('#new-notifications').html('');
-    $('#notifaction-modal').modal('toggle');
-})

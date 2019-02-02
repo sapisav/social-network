@@ -15,6 +15,36 @@
       "pic": null,
       "link": null,
       "id": 1
+    },
+    {
+      "userName": "zz@zz.com",
+      "fullName": "arik israel",
+      "data": "asdasdas",
+      "userProfile": "userProfile",
+      "postID": "Pzz@zz.com0",
+      "likes": 0,
+      "likers": [],
+      "creationTime": "2019-02-02T13:33:29.535Z",
+      "video": null,
+      "pic": null,
+      "link": null,
+      "id": 2
+    },
+    {
+      "userName": "zz@zz.com",
+      "fullName": "arik israel",
+      "data": "111111111111111",
+      "userProfile": "userProfile",
+      "postID": "Pzz@zz.com1",
+      "likes": 1,
+      "likers": [
+        "zz@zz.com"
+      ],
+      "creationTime": "2019-02-02T14:10:14.841Z",
+      "video": null,
+      "pic": null,
+      "link": null,
+      "id": 3
     }
   ],
   "comments": [
@@ -47,6 +77,68 @@
       "pic": null,
       "link": null,
       "id": 2
+    },
+    {
+      "userName": "zz@zz.com",
+      "data": "dddddddddddddddddddd",
+      "userProfile": "userProfile",
+      "commentID": "Czz@zz.com0",
+      "postID": "Pzz@zz.com0",
+      "likes": 1,
+      "likers": [
+        "zz@zz.com"
+      ],
+      "creationTime": "2019-02-02T14:08:37.967Z",
+      "video": null,
+      "pic": null,
+      "link": null,
+      "id": 3
+    },
+    {
+      "userName": "zz@zz.com",
+      "data": "dddddddddddd",
+      "userProfile": "userProfile",
+      "commentID": "Czz@zz.com1",
+      "postID": "Czz@zz.com0",
+      "likes": 1,
+      "likers": [
+        "zz@zz.com"
+      ],
+      "creationTime": "2019-02-02T14:09:11.725Z",
+      "video": null,
+      "pic": null,
+      "link": null,
+      "id": 4
+    },
+    {
+      "userName": "zz@zz.com",
+      "data": "222222222222222",
+      "userProfile": "userProfile",
+      "commentID": "Czz@zz.com2",
+      "postID": "Pzz@zz.com1",
+      "likes": 1,
+      "likers": [
+        "zz@zz.com"
+      ],
+      "creationTime": "2019-02-02T14:10:17.988Z",
+      "video": null,
+      "pic": null,
+      "link": null,
+      "id": 5
+    },
+    {
+      "userName": "zz@zz.com",
+      "data": "222",
+      "userProfile": "userProfile",
+      "commentID": "Czz@zz.com3",
+      "postID": "Czz@zz.com2",
+      "likes": 0,
+      "likers": [],
+      "creationTime": "2019-02-02T14:10:22.201Z",
+      "video": null,
+      "pic": null,
+      "link": null,
+      "id": 6
     }
   ],
   "users": [
@@ -61,7 +153,9 @@
       "privacy": "public",
       "friendsRequests": [],
       "friends": [
-        "xx@xx.com"
+        "xx@xx.com",
+        "zz@zz.com",
+        "q@q.com"
       ],
       "sentFriendRequest": [],
       "notifactions": [
@@ -69,14 +163,39 @@
           "senderName": "dory twig",
           "senderUserName": "xx@xx.com",
           "msg": "Is your friend now"
+        },
+        {
+          "senderName": "dory twig",
+          "senderUserName": "xx@xx.com",
+          "msg": "Is your friend now"
+        },
+        {
+          "senderName": "dory twig",
+          "senderUserName": "xx@xx.com",
+          "msg": "Sent a friend request"
+        },
+        {
+          "senderName": "dory twig",
+          "senderUserName": "xx@xx.com",
+          "msg": "Is your friend now"
+        },
+        {
+          "senderName": "nissan ventura",
+          "senderUserName": "q@q.com",
+          "msg": "Sent a friend request"
+        },
+        {
+          "senderName": "nissan ventura",
+          "senderUserName": "q@q.com",
+          "msg": "Is your friend now"
         }
       ],
       "notifactionsToSee": 0,
       "initProfile": true,
       "gender": "Male",
       "dob": "1986-05-14",
-      "postCount": 0,
-      "commentCount": 0,
+      "postCount": 2,
+      "commentCount": 4,
       "id": 10,
       "info": "its arik israel"
     },
@@ -91,7 +210,8 @@
       "privacy": "public",
       "friendsRequests": [],
       "friends": [
-        "zz@zz.com"
+        "zz@zz.com",
+        "q@q.com"
       ],
       "sentFriendRequest": [],
       "notifactions": [
@@ -104,9 +224,34 @@
           "senderName": "arik israel",
           "senderUserName": "zz@zz.com",
           "msg": "Is your friend now"
+        },
+        {
+          "senderName": "arik israel",
+          "senderUserName": "zz@zz.com",
+          "msg": "Sent a friend request"
+        },
+        {
+          "senderName": "arik israel",
+          "senderUserName": "zz@zz.com",
+          "msg": "Is your friend now"
+        },
+        {
+          "senderName": "arik israel",
+          "senderUserName": "zz@zz.com",
+          "msg": "Is your friend now"
+        },
+        {
+          "senderName": "nissan ventura",
+          "senderUserName": "q@q.com",
+          "msg": "Sent a friend request"
+        },
+        {
+          "senderName": "nissan ventura",
+          "senderUserName": "q@q.com",
+          "msg": "Is your friend now"
         }
       ],
-      "notifactionsToSee": 0,
+      "notifactionsToSee": 1,
       "initProfile": true,
       "gender": "Male",
       "dob": "2019-02-20",
@@ -114,6 +259,42 @@
       "commentCount": 2,
       "id": 11,
       "info": "DODORY"
+    },
+    {
+      "userName": "q@q.com",
+      "password": "1111",
+      "firstName": "nissan",
+      "lastName": "ventura",
+      "pic": "../imgs/banner.jpg",
+      "role": "regular",
+      "userInfo": "userInfo",
+      "privacy": "public",
+      "friendsRequests": [],
+      "friends": [
+        "xx@xx.com",
+        "zz@zz.com"
+      ],
+      "sentFriendRequest": [],
+      "notifactions": [
+        {
+          "senderName": "dory twig",
+          "senderUserName": "xx@xx.com",
+          "msg": "Is your friend now"
+        },
+        {
+          "senderName": "arik israel",
+          "senderUserName": "zz@zz.com",
+          "msg": "Is your friend now"
+        }
+      ],
+      "notifactionsToSee": 2,
+      "initProfile": true,
+      "gender": "Male",
+      "dob": "2019-02-12",
+      "postCount": 0,
+      "commentCount": 0,
+      "id": 12,
+      "info": "i like food"
     }
   ]
 }
