@@ -1,4 +1,5 @@
 let currentUser = JSON.parse(localStorage.getItem('userObject'));
+$.get(`${URL}/users/${currentUser.id}`).done(function(res){updateLocalStorage(res);});
 let collapseID = 0;
 loadSideBar(currentUser);
 toMyProfile(currentUser);
@@ -87,6 +88,7 @@ function addPostEvents(postTemplate, post) {
                 }).done(function (res) {
                     currentUser.commentCount++;
                     updateServer();
+                    
                     console.log(postTemplate);
                     postTemplate.find('#show-cmnt-btn').css('display', 'inline');
                     bindComsToTemplate([res], postTemplate);
@@ -143,13 +145,14 @@ function updateLikes(ev, path, post, notification) {
 }
 /* Update current user */
 function updateServer() { // better name
+    updateLocalStorage(currentUser);
     $.ajax({
         url: `${URL}/users/${currentUser.id}`,
         type: 'PUT',
         data: JSON.stringify(currentUser),
         contentType: 'application/json',
     }).done(function (res) {
-        updateLocalStorage(currentUser);
+        updateLocalStorage(res);
     }).fail(function (err) {
         console.log(err);
     });
@@ -387,6 +390,6 @@ function searchForUsers(fullName) {
 $('#notifaction').on('click', function(){
     currentUser.notifactionsToSee = 0;
     updateServer();
-
+    $('#new-notifications').html('');
     $('#notifaction-modal').modal('toggle');
 })

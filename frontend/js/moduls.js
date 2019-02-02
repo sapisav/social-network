@@ -194,7 +194,7 @@ function notifyNotifications(currentUser) {
     }
     let notificationsContainer = $('#show-notification-data');
     for (let i = 0; i < currentUser.notifactions.length; i++) {
-        notificationsContainer.append(createNotificationTemplate(currentUser.notifactions[i]));
+        notificationsContainer.prepend(createNotificationTemplate(currentUser.notifactions[i]));
     }
 
 }
