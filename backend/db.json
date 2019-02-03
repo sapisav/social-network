@@ -45,6 +45,37 @@
       "pic": null,
       "link": null,
       "id": 3
+    },
+    {
+      "userName": "xx@xx.com",
+      "fullName": "dory twig",
+      "data": "wowowowwowwoww",
+      "userProfile": "userProfile",
+      "postID": "Pxx@xx.com1",
+      "likes": 2,
+      "likers": [
+        "q@q.com",
+        "zz@zz.com"
+      ],
+      "creationTime": "2019-02-03T15:27:36.211Z",
+      "video": "../imgs/someVid.mp4",
+      "pic": "../imgs/loginbg.jpg",
+      "link": "R4LKjRJUGkk",
+      "id": 4
+    },
+    {
+      "userName": "q@q.com",
+      "fullName": "nissan ventura",
+      "data": "balblablalb",
+      "userProfile": "userProfile",
+      "postID": "Pq@q.com0",
+      "likes": 0,
+      "likers": [],
+      "creationTime": "2019-02-03T15:45:41.046Z",
+      "video": null,
+      "pic": null,
+      "link": null,
+      "id": 5
     }
   ],
   "comments": [
@@ -139,6 +170,37 @@
       "pic": null,
       "link": null,
       "id": 6
+    },
+    {
+      "userName": "zz@zz.com",
+      "data": "aloooooooooooooooo",
+      "userProfile": "userProfile",
+      "commentID": "Czz@zz.com4",
+      "postID": "Cxx@xx.com0",
+      "likes": 2,
+      "likers": [
+        "zz@zz.com",
+        "xx@xx.com"
+      ],
+      "creationTime": "2019-02-03T15:24:31.671Z",
+      "video": null,
+      "pic": null,
+      "link": null,
+      "id": 7
+    },
+    {
+      "userName": "zz@zz.com",
+      "data": "nice",
+      "userProfile": "userProfile",
+      "commentID": "Czz@zz.com5",
+      "postID": "Pxx@xx.com1",
+      "likes": 0,
+      "likers": [],
+      "creationTime": "2019-02-03T15:31:01.167Z",
+      "video": null,
+      "pic": null,
+      "link": null,
+      "id": 8
     }
   ],
   "users": [
@@ -195,7 +257,7 @@
       "gender": "Male",
       "dob": "1986-05-14",
       "postCount": 2,
-      "commentCount": 4,
+      "commentCount": 6,
       "id": 10,
       "info": "its arik israel"
     },
@@ -211,7 +273,8 @@
       "friendsRequests": [],
       "friends": [
         "zz@zz.com",
-        "q@q.com"
+        "q@q.com",
+        "xx@xx.com"
       ],
       "sentFriendRequest": [],
       "notifactions": [
@@ -251,11 +314,11 @@
           "msg": "Is your friend now"
         }
       ],
-      "notifactionsToSee": 1,
+      "notifactionsToSee": 0,
       "initProfile": true,
       "gender": "Male",
       "dob": "2019-02-20",
-      "postCount": 1,
+      "postCount": 2,
       "commentCount": 2,
       "id": 11,
       "info": "DODORY"
@@ -272,7 +335,8 @@
       "friendsRequests": [],
       "friends": [
         "xx@xx.com",
-        "zz@zz.com"
+        "zz@zz.com",
+        "q@q.com"
       ],
       "sentFriendRequest": [],
       "notifactions": [
@@ -287,11 +351,11 @@
           "msg": "Is your friend now"
         }
       ],
-      "notifactionsToSee": 2,
+      "notifactionsToSee": 0,
       "initProfile": true,
       "gender": "Male",
       "dob": "2019-02-12",
-      "postCount": 0,
+      "postCount": 1,
       "commentCount": 0,
       "id": 12,
       "info": "i like food"

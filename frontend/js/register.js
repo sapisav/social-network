@@ -103,6 +103,7 @@ $registerButton.onclick = function () {
 	if (lastVerification()) {
 		let newUser = new User($em1.value, $pw1.value);
 		newUser.pic = '../imgs/empty.png';
+		newUser.friends.push(newUser.userName);
 		$registerButton.style.display = 'none';
 		addNewUserToDB(newUser);
 
