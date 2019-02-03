@@ -230,7 +230,7 @@ $('#un-friend-btn').on('click', function (ev) {
 })
 
 $('#my-friends-btn').on('click', function () {
-    if (otherUser.friends.length === 0);
+    if (currentUser.friends.length === 0);
     else {
         let friendsContainer = $('#my-friends-data');
         friendsContainer.html('');
