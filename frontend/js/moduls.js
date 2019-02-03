@@ -229,16 +229,25 @@ function searchForUsers(fullName) {
     let resultsContainer = $('#show-friends-data');
     resultsContainer.html('');
     fullName = fullName.split(' ');
-    if (fullName.length === 1) {
+    if (fullName.length === 1 && fullName[0] != '') {
         $.get(`${URL}/users?firstName=${fullName[0]}`)
             .done(function (response) {
                 for (let i = 0; i < response.length; i++) {
                     resultsContainer.append(createFriendTemplate(response[i]));
                 }
             })
-    } else {
+    } else if(fullName.length === 2) {
         $.get(`${URL}/users?firstName=${fullName[0]}&lastName=${fullName[1]}`)
             .done(function (response) {
+                for (let i = 0; i < response.length; i++) {
+                    resultsContainer.append(createFriendTemplate(response[i]));
+                }
+            })
+    }
+    else {
+        $.get(`${URL}/users`)
+            .done(function (response) {
+                console.log(response.length)
                 for (let i = 0; i < response.length; i++) {
                     resultsContainer.append(createFriendTemplate(response[i]));
                 }
