@@ -369,7 +369,7 @@ a {
     cursor: pointer;
 }
 
-#show-friends-data {
+#show-friends-data, #show-notification-data, #my-friends-data {
     list-style-type: none;
 }
 
@@ -382,4 +382,14 @@ a {
     cursor: pointer;
     
     
+}
+#my-profile{
+    
+    
+    cursor: pointer;
+}
+#my-profile:hover{
+    color: aqua;
+    text-decoration: underline;
+    cursor: pointer;
 }

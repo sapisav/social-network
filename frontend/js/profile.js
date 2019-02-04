@@ -270,3 +270,8 @@ $('#other-friends-btn').on('click', function () {
             })
     }
 })
+
+$('#my-profile').on('click',function(){
+    localStorage.setItem('profile-of', currentUser.userName);
+    location.href = 'profile.html';
+})

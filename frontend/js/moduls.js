@@ -141,7 +141,15 @@ function updateLocalStorage(currentUser) {
 function loadSideBar(currentUser) {
     let $sideBar = $('.sidebar-nav');
     $sideBar.find('#a-img').attr('src', currentUser.pic);
+    $sideBar.find('#a-img').on('click', function(){
+        localStorage.setItem('profile-of', currentUser.userName);
+        location.href = 'profile.html';
+    })
     $sideBar.find('#a-full-name').text(`${currentUser.firstName} ${currentUser.lastName}`);
+    $sideBar.find('#a-full-name').on('click', function(){
+        localStorage.setItem('profile-of', currentUser.userName);
+        location.href = 'profile.html';
+    })
     $sideBar.find('#i-about-me').text(`${currentUser.info}`);
 
 
