@@ -52,10 +52,11 @@
       "data": "wowowowwowwoww",
       "userProfile": "userProfile",
       "postID": "Pxx@xx.com1",
-      "likes": 2,
+      "likes": 3,
       "likers": [
         "q@q.com",
-        "zz@zz.com"
+        "zz@zz.com",
+        "xx@xx.com"
       ],
       "creationTime": "2019-02-03T15:27:36.211Z",
       "video": "../imgs/someVid.mp4",

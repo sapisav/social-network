@@ -166,7 +166,7 @@ function getLikers(list) {
         $a.setAttribute('username', `${list[i]}`);
         $a.setAttribute('onclick', 'linkToProfile(event);');
         $a.style.display = 'block';
-        $a.innerHTML = list[i];
+        $a.innerHTML = list[i]; // change to full name
         htmlString += $a.outerHTML;
 
     }
@@ -175,8 +175,8 @@ function getLikers(list) {
 
 function linkToProfile(ev) {
     localStorage.setItem('profile-of', ev.currentTarget.getAttribute('username'));
-    // location.href = 'profile.html';
-    // console.log('wow');
+    location.href = 'profile.html';
+    
 }
 
 function toMyProfile(currentUser) {

@@ -151,6 +151,11 @@ function addPostEvents(postTemplate, post) {
             ev.currentTarget.innerHTML = 'Show comments';
         }
     })
+    /* redirect user to the post owner profile */
+    postTemplate.find('.aa').on('click', function(){
+        localStorage.setItem('profile-of', post.userName);
+        location.href = 'profile.html';
+    })
 
 }
 
