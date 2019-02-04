@@ -133,6 +133,16 @@ function addPostEvents(postTemplate, post) {
         }
     })
 
+     /* redirect user to the post owner profile */
+     postTemplate.find('.a-pic').on('click', function(){
+        localStorage.setItem('profile-of', post.userName);
+        location.href = 'profile.html';
+    })
+    postTemplate.find('.a-name').on('click', function(){
+        localStorage.setItem('profile-of', post.userName);
+        location.href = 'profile.html';
+    })
+
 }
 
 /* update likes of POST/COMMENT */

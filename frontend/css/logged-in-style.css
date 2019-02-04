@@ -377,3 +377,9 @@ a {
 #un-friend-btn {
     display: none;
 }
+
+.a-pic:hover, .a-name:hover{
+    cursor: pointer;
+    
+    
+}
