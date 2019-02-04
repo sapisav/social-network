@@ -12,6 +12,17 @@ let $hiddenContainer = document.querySelector("#hidden-container");
 let $showProfile = $hiddenContainer.querySelector("#show-profile");
 let $editProfile = $hiddenContainer.querySelector("#edit-profile");
 let $otherProfile = $hiddenContainer.querySelector("#show-other-profile");
+let $privateProfile = $hiddenContainer.querySelector("#show-private-profile");
+
+if (profileOf == currentUser.userName) {
+    if (currentUser.initProfile) {
+        updateProfile();
+        // loadSideBar(currentUser);
+        $profileInfo.append($showProfile);
+    } else $profileInfo.append($editProfile);
+} else { //show other profile
+    getOtherProfile();
+}
 
 
 
@@ -71,15 +82,7 @@ function updateProfile() { //update ui
 }
 
 
-if (profileOf == currentUser.userName) {
-    if (currentUser.initProfile) {
-        updateProfile();
-        // loadSideBar(currentUser);
-        $profileInfo.append($showProfile);
-    } else $profileInfo.append($editProfile);
-} else { //show other profile
-    getOtherProfile();
-}
+
 
 loadSideBar(currentUser);
 
@@ -87,30 +90,42 @@ function getOtherProfile() {
     $.get(`${URL}/users?userName=${profileOf}`)
         .done(function (response) {
             otherUser = response[0];
-            $otherProfile.querySelector('#fname-span').innerHTML = response[0].firstName;
-            $otherProfile.querySelector('#lname-span').innerHTML = response[0].lastName;
-            $otherProfile.querySelector('#dob-span').innerHTML = response[0].dob;
-            $otherProfile.querySelector('#gender-span').innerHTML = response[0].gender;
-            $otherProfile.querySelector('#info-span').innerHTML = response[0].info;
-            $otherProfile.querySelector('#card-img').setAttribute('src', response[0].pic);
-            $profileInfo.append($otherProfile);
-            //current user got new friend request from other user
-            if (currentUser.friendsRequests.includes(otherUser.userName)) {
-                $('#add-friend-btn').css('display', 'none');
-                $('#accept-friend-btn').css('display', 'inline');
-                //current user and other are friends
-            } else if (currentUser.friends.includes(otherUser.userName)) {
-                $('#add-friend-btn').css('display', 'none');
-                $('#un-friend-btn').css('display', 'inline');
-                //current user sent friend request
-            } else if (currentUser.sentFriendRequest.includes(otherUser.userName)) {
-                $('#add-friend-btn').html('Cancel friend request');
-            }
-            //current user and other user did nothing
-            else {
-
+            if (otherUser.privacy == 'public') {
+                initOtherProfile();
+            } else if ((otherUser.privacy == 'friends' && currentUser.friends.includes(otherUser.userName)) || otherUser.sentFriendRequest.includes(currentUser.userName)) {
+                initOtherProfile();
+            } else { // not friends or private account
+                showPrivateAcc()
             }
         })
+}
+function showPrivateAcc(){
+    $profileInfo.append($privateProfile);
+}
+
+function initOtherProfile() {
+    $otherProfile.querySelector('#fname-span').innerHTML = otherUser.firstName;
+    $otherProfile.querySelector('#lname-span').innerHTML = otherUser.lastName;
+    $otherProfile.querySelector('#dob-span').innerHTML = otherUser.dob;
+    $otherProfile.querySelector('#gender-span').innerHTML = otherUser.gender;
+    $otherProfile.querySelector('#info-span').innerHTML = otherUser.info;
+    $otherProfile.querySelector('#card-img').setAttribute('src', otherUser.pic);
+    
+    //current user got new friend request from other user
+    if (currentUser.friendsRequests.includes(otherUser.userName)) {
+        $('#add-friend-btn').css('display', 'none');
+        $('#accept-friend-btn').css('display', 'inline');
+        //current user and other are friends
+    } else if (currentUser.friends.includes(otherUser.userName)) {
+        $('#add-friend-btn').css('display', 'none');
+        $('#un-friend-btn').css('display', 'inline');
+        //current user sent friend request
+    } else if (currentUser.sentFriendRequest.includes(otherUser.userName)) {
+        $('#add-friend-btn').html('Cancel friend request');
+    } else {
+        //current user and other user did nothing
+    }
+    $profileInfo.append($otherProfile);
 }
 
 $('#delete-btn').on('click', function () {
@@ -271,7 +286,7 @@ $('#other-friends-btn').on('click', function () {
     }
 })
 
-$('#my-profile').on('click',function(){
+$('#my-profile').on('click', function () {
     localStorage.setItem('profile-of', currentUser.userName);
     location.href = 'profile.html';
 })

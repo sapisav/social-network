@@ -218,7 +218,8 @@
       "friends": [
         "xx@xx.com",
         "zz@zz.com",
-        "q@q.com"
+        "q@q.com",
+        "w@w.com"
       ],
       "sentFriendRequest": [],
       "notifactions": [
@@ -251,9 +252,19 @@
           "senderName": "nissan ventura",
           "senderUserName": "q@q.com",
           "msg": "Is your friend now"
+        },
+        {
+          "senderName": "sapir savion",
+          "senderUserName": "w@w.com",
+          "msg": "Sent a friend request"
+        },
+        {
+          "senderName": "sapir savion",
+          "senderUserName": "w@w.com",
+          "msg": "Is your friend now"
         }
       ],
-      "notifactionsToSee": 0,
+      "notifactionsToSee": 1,
       "initProfile": true,
       "gender": "Male",
       "dob": "1986-05-14",
@@ -328,11 +339,11 @@
       "userName": "q@q.com",
       "password": "1111",
       "firstName": "nissan",
-      "lastName": "ventura",
+      "lastName": "ven",
       "pic": "../imgs/banner.jpg",
       "role": "regular",
       "userInfo": "userInfo",
-      "privacy": "public",
+      "privacy": "friends",
       "friendsRequests": [],
       "friends": [
         "xx@xx.com",
@@ -355,11 +366,42 @@
       "notifactionsToSee": 0,
       "initProfile": true,
       "gender": "Male",
-      "dob": "2019-02-12",
+      "dob": "2019-02-07",
       "postCount": 1,
       "commentCount": 0,
       "id": 12,
-      "info": "i like food"
+      "info": "wawwwwwwwwwwwwwwww"
+    },
+    {
+      "userName": "w@w.com",
+      "password": "1111",
+      "firstName": "sapir",
+      "lastName": "savion",
+      "pic": "../imgs/loginbg.jpg",
+      "role": "regular",
+      "userInfo": "userInfo",
+      "privacy": "friends",
+      "friendsRequests": [],
+      "friends": [
+        "w@w.com",
+        "zz@zz.com"
+      ],
+      "sentFriendRequest": [],
+      "notifactions": [
+        {
+          "senderName": "arik israel",
+          "senderUserName": "zz@zz.com",
+          "msg": "Is your friend now"
+        }
+      ],
+      "notifactionsToSee": 1,
+      "initProfile": true,
+      "gender": "Male",
+      "dob": "2019-02-06",
+      "postCount": 0,
+      "commentCount": 0,
+      "id": 13,
+      "info": "its meeeeeeeeeeeeeeeee"
     }
   ]
 }
