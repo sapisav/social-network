@@ -1,4 +1,5 @@
 let currentUser = JSON.parse(localStorage.getItem('userObject'));
+// let pageCounter = 1;
 $.get(`${URL}/users/${currentUser.id}`)
     .done(function (res) {
         updateLocalStorage(res);
@@ -6,6 +7,12 @@ $.get(`${URL}/users/${currentUser.id}`)
         notifyNotifications(currentUser);
     });
 let collapseID = 0;
+let loadedPostsContainer = [];
+let myFriends = null;
+let friendsString = makeFriendsString();
+let startRange = 0;
+let endRange = 2;
+let globalY = -500;
 loadSideBar(currentUser);
 toMyProfile(currentUser);
 loadFeedPosts();
@@ -27,31 +34,26 @@ send GET request to get all posts of current user
                         than: continue to the next post if exist (end of single iteration)
 */
 function loadFeedPosts() {
-    $.get(`${URL}/posts${makeFriendsString()}`)
+    $.get(`${URL}/posts${friendsString}`) //&_page=${pageCounter++}&_limit=2
         .done(async function (response) {
-            let myFriends = await $.get(`${URL}/users${makeFriendsString()}`)
-            .done(function (res) {
-               return res;
-            })
-            console.log('friends: ', myFriends);
-            bindPostsToTemplate(response, myFriends);
-            console.log('posts: ',response);
+            myFriends = await $.get(`${URL}/users${friendsString}`)
+                .done(function (res) {
+                    return res;
+                })
+            loadedPostsContainer = response.reverse(); // because last item in list its the newest, and by date sort is the default
+            bindPostsToTemplate(loadedPostsContainer.slice(startRange, endRange), myFriends, 'append');
+
         })
 }
 
-function loadFriends(){
-    $.get(`${URL}/users${str}`)
-            .done(function (res) {
-               
-            })
-}
 
-function bindPostsToTemplate(posts, myFriends = []) {
+function bindPostsToTemplate(posts, myFriends = [], method) {
+
     for (let i = 0; i < posts.length; i++) {
         let postOwner = null;
-        for(let j = 0 ; j < myFriends.length; j++){
-            if(posts[i].userName == myFriends[j].userName){
-               postOwner = myFriends[j];
+        for (let j = 0; j < myFriends.length; j++) {
+            if (posts[i].userName == myFriends[j].userName) {
+                postOwner = myFriends[j];
             }
         }
         let postTemplate = $(createPostHtmlTemplate());
@@ -82,14 +84,21 @@ function bindPostsToTemplate(posts, myFriends = []) {
 
 
         loadCom(postTemplate, posts[i].postID);
-
-        $('#psts').prepend(postTemplate);
+        if (method == 'prepend') {
+            $('#psts').prepend(postTemplate);
+        } else {
+            $('#psts').append(postTemplate);
+        }
+        if(i == posts.length-1){
+            startRange = endRange;
+            endRange = endRange + 2;
+        }
     }
     $('[data-toggle="popover"]').popover({
         html: true
     });
 
-
+    
 
 }
 /* POST EVENTS */
@@ -152,11 +161,11 @@ function addPostEvents(postTemplate, post) {
         }
     })
     /* redirect user to the post owner profile */
-    postTemplate.find('.a-pic').on('click', function(){
+    postTemplate.find('.a-pic').on('click', function () {
         localStorage.setItem('profile-of', post.userName);
         location.href = 'profile.html';
     })
-    postTemplate.find('.a-name').on('click', function(){
+    postTemplate.find('.a-name').on('click', function () {
         localStorage.setItem('profile-of', post.userName);
         location.href = 'profile.html';
     })
@@ -384,7 +393,8 @@ $('#new-post-btn').on('click', function () {
                 updateServer();
                 // loadMyPosts();
                 // console.log(res);
-                bindPostsToTemplate([res]);
+                loadedPostsContainer = [res].concat(loadedPostsContainer);
+                bindPostsToTemplate([res], myFriends, 'prepend');
             })
             .fail(function (err) {
                 console.log(err);
@@ -392,12 +402,11 @@ $('#new-post-btn').on('click', function () {
     }
 })
 
-function makeFriendsString(){
-    if (currentUser.friends.length === 0){
+function makeFriendsString() {
+    if (currentUser.friends.length === 0) {
         return '';
-    }
-    else {
-        
+    } else {
+
         let str = '?'
         for (let i = 0; i < currentUser.friends.length; i++) {
             str += `userName=${currentUser.friends[i]}&`; // i know its almost the worst way to get all friends
@@ -405,6 +414,24 @@ function makeFriendsString(){
         }
         str = str.substring(0, str.length - 1)
         return str;
-       
+
     }
+}
+
+
+window.onscroll = function () {
+    if (document.body.getBoundingClientRect().y < globalY) {
+        if (startRange <= loadedPostsContainer.length) {
+            
+            bindPostsToTemplate(loadedPostsContainer.slice(startRange, endRange), myFriends, 'append');
+            globalY = globalY - 750;
+        }
+    }
+
+
+};
+
+function sortBy() {
+    let container = $('#psts')
+
 }
