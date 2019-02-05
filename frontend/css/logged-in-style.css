@@ -259,7 +259,7 @@ a {
     margin-left: 260px;
 }
 
-#sort-by {
+#sort-by, #filter-by {
     margin-left: 10px;
     margin-bottom: 10px;
     border-radius: 5px;
@@ -383,13 +383,14 @@ a {
     
     
 }
-#my-profile{
+#my-profile, .fake-link{
     
     
     cursor: pointer;
 }
-#my-profile:hover{
+#my-profile:hover , .fake-link:hover{
     color: aqua;
     text-decoration: underline;
     cursor: pointer;
 }
+

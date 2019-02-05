@@ -500,6 +500,30 @@
       "commentCount": 0,
       "id": 13,
       "info": "its meeeeeeeeeeeeeeeee"
+    },
+    {
+      "userName": "p@p.com",
+      "password": "1111",
+      "firstName": "shlomi",
+      "lastName": "fefe",
+      "pic": "../imgs/empty.png",
+      "role": "regular",
+      "userInfo": "userInfo",
+      "privacy": "public",
+      "friendsRequests": [],
+      "friends": [
+        "p@p.com"
+      ],
+      "sentFriendRequest": [],
+      "notifactions": [],
+      "notifactionsToSee": 0,
+      "initProfile": true,
+      "gender": "Male",
+      "dob": "2019-02-08",
+      "postCount": 0,
+      "commentCount": 0,
+      "id": 14,
+      "info": "waka"
     }
   ]
 }

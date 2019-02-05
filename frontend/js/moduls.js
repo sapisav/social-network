@@ -277,3 +277,8 @@ function findAndDelete(arr, item) {
     }
 }
 
+$('.fake-link').on('click', function(){
+    localStorage.clear();
+    location.href = 'index.html';
+})
+

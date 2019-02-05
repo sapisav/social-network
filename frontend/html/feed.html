@@ -12,31 +12,31 @@
 
 <body id="wall">
 	<header>
-		<div id="search-div" class="text-left-search">
+		<div id="search-div" class="text-left-search not-for-anonym">
 			<input id="search-input" type="text" placeholder="Search">
 		</div>
-		<div class="menu-icon"><a href="#setting">Setting</a>
+		<div class="menu-icon not-for-anonym"><a href="#setting">Setting</a>
 		</div>
-		<div class="menu-icon second-icon"><a id="notifaction" href="#">Notifaction <span id="new-notifications" class="badge badge-light"></span></a>
+		<div class="menu-icon second-icon not-for-anonym"><a id="notifaction" href="#">Notifaction <span id="new-notifications" class="badge badge-light"></span></a>
 		</div>
-		<div id="my-profile-header" class="menu-icon second-icon"><a id="my-profile" href="#">My Profile</a>
+		<div id="my-profile-header" class="menu-icon second-icon not-for-anonym"><a id="my-profile" href="#">My Profile</a>
 		</div>
-		<div class="menu-icon second-icon"><a href="wall.html">Wall</a>
+		<div class="menu-icon second-icon not-for-anonym"><a href="wall.html">Wall</a>
 		</div>
 		<div class="menu-icon second-icon"><a href="feed.html">Feed</a>
 		</div>
-		<div class="menu-icon second-icon"><a href="index.html">Log out</a>
+		<div class="menu-icon second-icon"><a class ='fake-link' href="#">Log out</a>
 		</div>
 	</header>
 	<div class="sidebar-nav">
-		<a href="profile.html" title="Profile">
-			<img id="a-img" src="../imgs/user1.jpg" alt="User name" class="img-profile">
+		<a href="#" title="Profile">
+			<img id="a-img" src="../imgs/empty.png" alt="User name" class="img-profile">
 		</a>
 		<h2 class="text-center">
-			<a id="a-full-name" href="profile.html" title="Profile">My User</a>
+			<a id="a-full-name" href="profile.html" title="Profile">anonymous</a>
 		</h2>
 		<p class="text-center user-description hidden-xs">
-			<i id="i-about-me">user status / description</i>
+			<i id="i-about-me">you logged in as anonymous</i>
 		</p>
 	</div>
 	<div id="new-post-div" class="container">
@@ -149,13 +149,24 @@
 			</div>
 		</div>
 	</div> <!-- END of Notifaction Modal -->
-	<div id="sort-posts-div">
-		<span id="sort-span">Sort by:</span>
-		<select name="lol" id="sort-by">
-			<option value="date">Date</option>
-			<option value="video">Videos first</option>
-			<option value="shuffle">Shuffle</option>
-		</select>
+	<div class="container" id="sort-posts-div">
+		<div class="row">
+			<div class="col">
+				<span id="sort-span">Sort by:</span>
+				<select id="sort-by">
+					<option value="date">Date</option>
+					<option value="likes">Likes</option>
+				</select>
+			</div>
+			<div class="col">
+				<span id="sort-span">filter by:</span>
+				<select id="filter-by">
+					<option value="friends">Friends only</option>
+					<option value="all">All</option>
+				</select>
+			</div>
+		</div>
+
 	</div>
 
 
@@ -316,7 +327,7 @@
 	 crossorigin="anonymous"></script>
 	<script src="../js/moduls.js"></script>
 	<script src="../js/feed.js"></script>
-	
+
 
 </body>
 
