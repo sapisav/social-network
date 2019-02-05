@@ -16,15 +16,15 @@
         </div>
         <div class="menu-icon"><a href="#setting">Setting</a>
         </div>
-        <div class="menu-icon second-icon"><a href="#notifaction">Notifaction</a>
+        <div class="menu-icon second-icon"><a id="notifaction" href="#">Notifaction <span id="new-notifications" class="badge badge-light"></span></a>
         </div>
-        <div class="menu-icon second-icon"><a href="profile.html">Profile</a>
+        <div id="my-profile-header" class="menu-icon second-icon"><a id="my-profile" href="#">My Profile</a>
         </div>
         <div class="menu-icon second-icon"><a href="wall.html">Wall</a>
         </div>
         <div class="menu-icon second-icon"><a href="feed.html">Feed</a>
         </div>
-        <div class="menu-icon second-icon"><a href="index.html">Log out</a>
+        <div class="menu-icon second-icon"><a class ='fake-link' href="#">Log out</a>
         </div>
     </header>
 
@@ -104,6 +104,54 @@
         </div>
     </div>
 
+    <!-- Search friends Modal -->
+    <div class="modal fade" id="show-friends-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Friends result</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ul id="show-friends-data">
+
+
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div> <!-- END of Search friends Modal -->
+
+    <!-- Notifaction Modal -->
+    <div class="modal fade" id="notifaction-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Notifactions</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ul id="show-notification-data">
+
+
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div> <!-- END of Notifaction Modal -->
+
     <div id="psts" class="profile-container container">
 
     </div>
@@ -113,12 +161,12 @@
         <div class="card-post">
             <div class="row">
                 <div class="col-sm-2">
-                    <a href="profile.html" title="User Profile">
+                    <a class="a-pic" title="User Profile">
                         <img id="post-header-pic" alt="User name" class="img-circle img-user">
                     </a>
                 </div>
                 <div class="col-sm-10">
-                    <h3><a id="post-header-name" href="profile.html" title="User Profile">full name</a></h3>
+                    <h3><a class="a-name" id="post-header-name" title="User Profile">full name</a></h3>
                     <p><i id="post-header-date" class="creationTime">5h</i></p>
                 </div>
             </div>
@@ -236,6 +284,19 @@
             Your browser does not support HTML5 video.
         </video>
         <img class="img-fluid" id="img" alt="image">
+        <!-- friend template -->
+        <li id="friend-template">
+            <img class="img-fluid mx-auto d-block float-left img-search-friends" alt="...">
+            <h2 id="full-name-search-friends">Full name</h2>
+            <br>
+        </li>
+        <!-- notification template -->
+        <li id="notification-template">
+                <img class="img-fluid mx-auto d-block float-left img-search-friends" alt="...">
+                <h4 id="full-name-notification">Full name</h2>
+                <h7 id="msg-notification"></h3>
+                <br>
+            </li>
     </div>
 
 
@@ -248,5 +309,5 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"></script>
     <script src="../js/moduls.js"></script>
-    <script src="../js/wall222.js"></script>
+    <script src="../js/wall.js"></script>
 </body>

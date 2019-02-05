@@ -25,7 +25,7 @@ async function validateUsernameAndPw(){
         }).catch(error => console.log(error));
 
     
-    if(user[0] == undefined){
+    if(user.length == 0){
 		showAlert(true);
 		
 	}
@@ -41,6 +41,7 @@ async function validateUsernameAndPw(){
 		// localStorage.setItem("logged-in-as", `${user[0].userName}`);
 		localStorage.setItem("userObject",JSON.stringify(user[0]));
 		localStorage.setItem('profile-of', user[0].userName);
+		localStorage.setItem('anonymous', 'false');
 		if(user[0].initProfile)
 			location.href = "feed.html";
 		else location.href = "profile.html";
@@ -55,4 +56,8 @@ async function countPosts(){
 		
 }
 
+$('#anonymous-login').on('click', function(){
+	localStorage.setItem('anonymous', 'true');
+	location.href = 'feed.html';
+})
 

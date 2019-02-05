@@ -10,22 +10,94 @@
 <body>
 	<!-- header -->
 	<header>
-		<form class="text-left-search">
-			<input type="search" placeholder="Search">
-		</form>
+		<div id="search-div" class="text-left-search">
+			<input id="search-input" type="text" placeholder="Search">
+		</div>
 		<div class="menu-icon"><a href="#setting">Setting</a>
 		</div>
-		<div class="menu-icon second-icon"><a href="#notifaction">Notifaction</a>
+		<div class="menu-icon second-icon"><a id="notifaction" href="#">Notifaction <span id="new-notifications" class="badge badge-light"></span></a>
 		</div>
-		<div class="menu-icon second-icon"><a href="profile.html">Profile</a>
+		<div id="my-profile-header" class="menu-icon second-icon"><a id="my-profile">My Profile</a>
 		</div>
 		<div class="menu-icon second-icon"><a href="wall.html">Wall</a>
 		</div>
 		<div class="menu-icon second-icon"><a href="feed.html">Feed</a>
 		</div>
-		<div class="menu-icon second-icon"><a href="index.html">Log out</a>
+		<div class="menu-icon second-icon"><a class ='fake-link' href="#">Log out</a>
 		</div>
 	</header>
+	<!-- Search friends Modal -->
+	<div class="modal fade" id="show-friends-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+	 aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLongTitle">Friends result</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<ul id="show-friends-data">
+
+
+					</ul>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div> <!-- END of Search friends Modal -->
+
+	<!-- Notifaction Modal -->
+	<div class="modal fade" id="notifaction-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+	 aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLongTitle">Notifactions</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<ul id="show-notification-data">
+
+
+					</ul>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div> <!-- END of Notifaction Modal -->
+
+	<!-- User friends Modal -->
+	<div class="modal fade" id="my-friends-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+	 aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLongTitle">My friends</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<ul id="my-friends-data">
+
+
+					</ul>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div> <!-- END of Search friends Modal -->
+
 	<!-- side bar -->
 	<div class="sidebar-nav">
 		<a href="profile.html" title="Profile">
@@ -138,23 +210,59 @@
 					<h3>Gender: <span id="gender-span">sasa</span></h3>
 					<h3>About me: <span id="info-span">sasa</span></h3>
 					<button id="edit-btn" type="button" class="btn btn-primary">Edit</button>
+					<button id="my-friends-btn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#my-friends-modal">
+						Show friends
+					</button>
 				</div>
 			</div>
 		</div>
 		<!-- other profile -->
 		<div id="show-other-profile">
+			<div class="card">
+				<img id="card-img" class="card-img-top" src="../imgs/user1.jpg" alt="Card image cap">
+				<div class="card-body">
+					<h3>First Name: <span id="fname-span">sasa</span></h3>
+					<h3>Last Name: <span id="lname-span">sasa</span></h3>
+					<h3>DOB: <span id="dob-span">sasa</span></h3>
+					<h3>Gender: <span id="gender-span">sasa</span></h3>
+					<h3>About me: <span id="info-span">sasa</span></h3>
+					<button id="add-friend-btn" type="button" class="btn btn-primary">Add friend</button>
+					<button id="accept-friend-btn" type="button" class="btn btn-primary">Accept friend</button>
+					<button id="un-friend-btn" type="button" class="btn btn-primary">Unfriend</button>
+					<button id="other-friends-btn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#my-friends-modal">
+							Show friends
+						</button>
+				</div>
+			</div>
+		</div>
+		<!-- other profile -->
+		<div id="show-private-profile">
 				<div class="card">
-					<img id="card-img" class="card-img-top" src="../imgs/user1.jpg" alt="Card image cap">
+					<img id="card-img" class="card-img-top" src="../imgs/empty.png" alt="Card image cap">
 					<div class="card-body">
-						<h3>First Name: <span id="fname-span">sasa</span></h3>
-						<h3>Last Name: <span id="lname-span">sasa</span></h3>
-						<h3>DOB: <span id="dob-span">sasa</span></h3>
-						<h3>Gender: <span id="gender-span">sasa</span></h3>
-						<h3>About me: <span id="info-span">sasa</span></h3>
-						<button id="add-friend-btn" type="button" class="btn btn-primary">Add friend</button>
+						<h1>No premission</h1>
+						<h1>to see this profile</h1>
+						
 					</div>
 				</div>
 			</div>
+
+
+		<div id="post-template">
+			<li id="friend-template">
+				<img class="img-fluid mx-auto d-block float-left img-search-friends" alt="...">
+				<h2 id="full-name-search-friends">Full name</h2>
+				<br>
+			</li>
+			<!-- notification template -->
+			<li id="notification-template">
+				<img class="img-fluid mx-auto d-block float-left img-search-friends" alt="...">
+				<h4 id="full-name-notification">Full name</h2>
+					<h7 id="msg-notification">
+						</h3>
+						<br>
+			</li>
+		</div>
 	</div>
 	<script src="../js/jquery-3.3.1.min.js"></script>
 	<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
