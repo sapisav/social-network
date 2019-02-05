@@ -14,9 +14,23 @@ let $editProfile = $hiddenContainer.querySelector("#edit-profile");
 let $otherProfile = $hiddenContainer.querySelector("#show-other-profile");
 let $privateProfile = $hiddenContainer.querySelector("#show-private-profile");
 
-if (profileOf == currentUser.userName) {
+if(currentUser.role == 'admin'){
+    if(currentUser.userName == profileOf){
+        updateProfile(currentUser);
+        $profileInfo.append($showProfile);
+    }
+    else{
+        $.get(`${URL}/users?userName=${profileOf}`)
+        .done(function (response) {
+            updateProfile(response[0]);
+            $profileInfo.append($showProfile);
+           
+        })
+    }
+}
+else if (profileOf == currentUser.userName) {
     if (currentUser.initProfile) {
-        updateProfile();
+        updateProfile(currentUser);
         // loadSideBar(currentUser);
         $profileInfo.append($showProfile);
     } else $profileInfo.append($editProfile);
@@ -57,7 +71,7 @@ function updateServer() { // update profile info
     }).done(function (res) {
         $hiddenContainer.append($editProfile);
         updateLocalStorage(currentUser);
-        updateProfile();
+        updateProfile(currentUser);
         $profileInfo.append($showProfile);
         //succes alert
     }).fail(function (err) {
@@ -72,13 +86,14 @@ $showProfile.querySelector('#edit-btn').onclick = function () {
 
 }
 
-function updateProfile() { //update ui
-    $showProfile.querySelector('#fname-span').innerHTML = currentUser.firstName;
-    $showProfile.querySelector('#lname-span').innerHTML = currentUser.lastName;
-    $showProfile.querySelector('#dob-span').innerHTML = currentUser.dob;
-    $showProfile.querySelector('#gender-span').innerHTML = currentUser.gender;
-    $showProfile.querySelector('#info-span').innerHTML = currentUser.info;
-    $showProfile.querySelector('#card-img').setAttribute('src', currentUser.pic);
+function updateProfile(user) { //update ui
+    $showProfile.querySelector('#fname-span').innerHTML = user.firstName;
+    $showProfile.querySelector('#lname-span').innerHTML = user.lastName;
+    $showProfile.querySelector('#dob-span').innerHTML = user.dob;
+    $showProfile.querySelector('#gender-span').innerHTML = user.gender;
+    $showProfile.querySelector('#info-span').innerHTML = user.info;
+    $showProfile.querySelector('#card-img').setAttribute('src', user.pic);
+    $profileInfo.append($showProfile);
 }
 
 

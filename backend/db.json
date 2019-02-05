@@ -264,7 +264,7 @@
           "msg": "Is your friend now"
         }
       ],
-      "notifactionsToSee": 1,
+      "notifactionsToSee": 0,
       "initProfile": true,
       "gender": "Male",
       "dob": "1986-05-14",
@@ -341,7 +341,7 @@
       "firstName": "nissan",
       "lastName": "ven",
       "pic": "../imgs/banner.jpg",
-      "role": "regular",
+      "role": "admin",
       "userInfo": "userInfo",
       "privacy": "friends",
       "friendsRequests": [],
