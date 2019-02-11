@@ -49,3 +49,5 @@
 24.The frontend must be visually appealing(same �look and feel� throughout the application�s UI. feel free to use frameworks). 
 25.Use ?localStorage? to store data for each client(will be kept as long as the user does not clear its browser�s cache). 
 - OK
+
+NOTE: this version is only frontend, i used https://github.com/typicode/json-server as my server
