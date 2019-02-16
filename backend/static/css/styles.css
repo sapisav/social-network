@@ -1,0 +1,131 @@
+/*####### defaults for register/login ########*/
+#index,
+#register {
+	background-image: url(../imgs/loginbg.jpg);
+	background-size: cover;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+.nav-ul {
+	background-color: rgba(255, 255, 255, 0.71);
+	display: block;
+	width: 100%;
+	border-radius: 20px;
+
+
+}
+
+#left-li {
+	margin-left: 1%;
+}
+
+.nav-ul li {
+	display: inline-block;
+	text-align: center;
+	margin-left: 17%;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.nav-ul li:hover {
+	background-color: blue;
+	border-radius: 8px;
+
+}
+
+.nav-ul li a {
+	text-align: center;
+	font-size: 30px;
+	text-decoration: none;
+	color: black;
+}
+
+.login-div {
+	width: 420px;
+	height: 380px;
+	;
+	margin: 0 auto;
+	margin-top: 100px;
+	background-color: black;
+	border-radius: 15px;
+	opacity: 0.83;
+}
+
+.register-div {
+	width: 420px;
+	height: 485px;
+	margin: 0 auto;
+	margin-top: 100px;
+	background-color: black;
+	border-radius: 15px;
+	opacity: 0.83;
+}
+
+form {
+	display: grid;
+	margin-top: 15%;
+}
+
+.logo-div {
+	color: aliceblue;
+	text-align: center;
+}
+
+.inputs {
+	margin: 12px;
+	height: 35px;
+	font-size: 22px;
+}
+
+input[type="checkbox"] {
+	display: inline;
+	margin-left: 10px;
+	width: 20px;
+}
+
+
+input[type="checkbox"]::after {
+	content: "Save";
+	color: aliceblue;
+	margin-left: 20px;
+	display: inline;
+}
+
+input[type="submit"] {
+	background-color: blanchedalmond;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.login-div a {
+	font-size: 15px;
+	text-decoration: none;
+	margin-left: 10px;
+	color: #1d1dc7;
+}
+
+#err {
+	color: red;
+	display: none;
+	position: absolute;
+	margin-left: 10px;
+}
+
+.register-div a{
+	margin-left: 10px;
+}
+
+.alert {
+	display: none;
+}
+
+#anonymous-login{
+	color: blue;
+	cursor: pointer;
+}
+
+
+/*####### feed #########*/

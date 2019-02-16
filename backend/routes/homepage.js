@@ -16,6 +16,8 @@ router.post("/login", authMW.fullAuth, (req, res) => {
   });
 });
 
+
+
 // dump session data to client
 router.get("/login-status", function (req, res, next) {
   res.json({

@@ -1,8 +1,3 @@
-const users = {
-  admin: "3858f62230ac3c915f300c664312c63f",
-  nisan: "3858f62230ac3c915f300c664312c63f",
-  foo: "3858f62230ac3c915f300c664312c63f"
-};
 
 const roles = Object.freeze({
   GUEST: "GUEST",
@@ -16,7 +11,8 @@ const roles = Object.freeze({
 const permissions = [
   "user.edit.profile",
   "user.account.delete",
-  "user.account.susspend"
+  "user.account.susspend",
+  "user.read"
 ];
 
 const rolePermissions = {
@@ -30,7 +26,8 @@ const rolePermissions = {
 const userRoles = {
   admin: roles.ADMIN,
   nisan: roles.SUPER_ADMIN,
-  foo: roles.OWNER
+  foo: roles.OWNER,
+  anonymous: roles.GUEST
 };
 
-module.exports = { users, roles, permissions, rolePermissions, userRoles };
+module.exports = { roles, permissions, rolePermissions, userRoles };

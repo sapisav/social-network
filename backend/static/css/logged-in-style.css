@@ -1,0 +1,396 @@
+body {
+    background-color: #edf1f5;
+    font-family: sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+    margin: 0;
+    display: block;
+    background: #edf1f5;
+
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+header {
+    display: block;
+    text-align: right;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 15px 30px 10px 220px;
+    min-height: 50px;
+    background: #4F5467;
+    font-size: 14px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9;
+}
+
+#search-div {
+    display: block;
+    float: left;
+    margin-left: 40px;
+}
+
+header .search {
+    float: left;
+    margin: 0px;
+}
+
+header a {
+    color: aliceblue;
+}
+
+header a:hover {
+    color: cyan;
+}
+
+.text-left-search input {
+    width: 200px;
+    border-radius: 10px;
+    border: 0px;
+    color: #404040;
+    font-size: 13px;
+    padding: 5px;
+    padding-bottom: 3px;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    margin: 0;
+    font: inherit;
+    border-radius: 10px;
+}
+
+header .menu-icon {
+    margin-top: 3px;
+}
+
+header div {
+    float: right;
+}
+
+header .second-icon {
+    margin-right: 60px;
+}
+
+.sidebar-nav {
+    box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08);
+    position: fixed;
+    width: 240px;
+    top: 0px;
+    padding: 50px 10px 0px 10px;
+    background: #ffffff;
+    z-index: 99;
+    height: 100%;
+}
+
+#new-post-div {
+    margin-left: 240px;
+    margin-top: 65px;
+    height: 250px;
+}
+
+#new-post-div .primary-content {
+    border: 1px solid;
+    margin-left: 20px;
+    border-radius: 15px;
+    width: 60%;
+
+}
+
+#new-post-form input {
+    margin-top: 10px;
+}
+
+#new-post-text {
+    resize: none;
+    border-radius: 10px;
+    display: block;
+    margin-top: 10px;
+    width: 100%;
+}
+
+#new-post-btn {
+    margin: 10px;
+}
+
+.content-posts {
+    margin-left: 240px;
+    margin-top: 75px;
+    height: 100%;
+}
+
+.primary-content {
+    width: 70%;
+    float: left;
+}
+
+.primary-content .container-posts {
+    padding: 0 40px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card-post {
+    background: #ffffff;
+    padding: 15px;
+    display: block;
+    /* overflow: hidden; */
+    margin-bottom: 15px;
+    border-radius: 8px;
+}
+
+.row {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.col-sm-2 {
+    width: 16.66666667%;
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    float: left;
+}
+
+.col-sm-10 {
+    width: 83.33333333%;
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    float: left;
+}
+
+.col-sm-8 {
+    width: 66.66666667%;
+}
+
+.col-sm-offset-2 {
+    margin-left: 16.66666667%;
+}
+
+.img-user {
+    max-width: 110px;
+    min-width: 60px;
+    border-radius: 50%;
+    width: 90%;
+    margin-left: 5%;
+}
+
+.likes {
+    padding: 10px 0;
+}
+
+.emoji {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    border: 0;
+    cursor: pointer;
+}
+
+.comments .more-comments {
+    color: #ababab;
+    padding: 5px 0;
+}
+
+.comments ul {
+    list-style: none;
+    padding: 0px;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.comments form {
+    display: block;
+    margin-top: 0em;
+}
+
+.comments form input {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 0;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+
+}
+
+#loading {
+    width: 36px;
+    margin-left: 33%;
+    margin-bottom: 20px;
+}
+
+a {
+    color: #404040;
+    text-decoration: none;
+}
+
+.img-profile {
+    min-width: 60px;
+    border-radius: 50%;
+    width: 90%;
+    margin: auto;
+}
+
+.text-center {
+    text-align: center;
+}
+
+#sort-posts-div {
+    display: block;
+    float: left;
+    margin-left: 260px;
+}
+
+#sort-by, #filter-by {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+#sort-span {
+    display: block;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+
+/*########## profile ############*/
+
+.profile-content {
+    padding-top: 50px;
+    margin-top: 0px;
+}
+
+.banner-profile {
+    height: 160px;
+    width: 100%;
+    background-image: url(/imgs/banner.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.profile-container {
+    background-color: white;
+    width: 60%;
+    /* height: 750px; */
+    margin-left: 255px;
+    margin-top: 10%;
+    border-radius: 10px;
+    align-content: center;
+}
+
+.profile-info {
+    width: 70%;
+    margin: auto;
+    padding-top: 5%;
+
+}
+
+.profile-info .img-info {
+    border-radius: 10%;
+    width: 70%;
+}
+
+#edit-info {
+    border-radius: 5%;
+    cursor: pointer;
+}
+
+#hidden-container {
+    display: none;
+}
+
+#post-template {
+    display: none;
+}
+
+.cmnt-right {
+    margin-left: 3%;
+}
+
+.comments-container,
+.cola {
+    width: 95%;
+    padding: 2%;
+}
+
+.show-cmnt-btn,
+#com-of-com-btn {
+    margin-left: 1px;
+    display: none;
+}
+
+#com-to-com-btn {
+    margin-left: 1px;
+    display: inline;
+}
+
+.com-of-com {
+    margin-left: 20%;
+}
+
+#show-likers-btn {
+    margin-left: 2%;
+}
+
+#add-item-btn {
+    margin-top: 2px;
+    padding-top: 2px;
+}
+
+.img-search-friends {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+
+#full-name-search-friends,
+#full-name-notification {
+    margin-left: 1rem;
+    cursor: pointer;
+}
+
+#show-friends-data, #show-notification-data, #my-friends-data {
+    list-style-type: none;
+}
+
+#accept-friend-btn,
+#un-friend-btn {
+    display: none;
+}
+
+.a-pic:hover, .a-name:hover{
+    cursor: pointer;
+    
+    
+}
+#my-profile, .fake-link{
+    
+    
+    cursor: pointer;
+}
+#my-profile:hover , .fake-link:hover{
+    color: aqua;
+    text-decoration: underline;
+    cursor: pointer;
+}
+

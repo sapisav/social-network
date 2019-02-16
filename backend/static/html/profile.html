@@ -1,0 +1,279 @@
+<!doctype html>
+<html>
+
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+	 crossorigin="anonymous">
+	<link href="../css/logged-in-style.css" rel="stylesheet">
+</head>
+
+<body>
+	<!-- header -->
+	<header>
+		<div id="search-div" class="text-left-search">
+			<input id="search-input" type="text" placeholder="Search">
+		</div>
+		<div class="menu-icon"><a href="#setting">Setting</a>
+		</div>
+		<div class="menu-icon second-icon"><a id="notifaction" href="#">Notifaction <span id="new-notifications" class="badge badge-light"></span></a>
+		</div>
+		<div id="my-profile-header" class="menu-icon second-icon"><a id="my-profile">My Profile</a>
+		</div>
+		<div class="menu-icon second-icon"><a href="wall.html">Wall</a>
+		</div>
+		<div class="menu-icon second-icon"><a href="feed.html">Feed</a>
+		</div>
+		<div class="menu-icon second-icon"><a class ='fake-link' href="#">Log out</a>
+		</div>
+	</header>
+	<!-- Search friends Modal -->
+	<div class="modal fade" id="show-friends-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+	 aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLongTitle">Friends result</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<ul id="show-friends-data">
+
+
+					</ul>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div> <!-- END of Search friends Modal -->
+
+	<!-- Notifaction Modal -->
+	<div class="modal fade" id="notifaction-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+	 aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLongTitle">Notifactions</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<ul id="show-notification-data">
+
+
+					</ul>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div> <!-- END of Notifaction Modal -->
+
+	<!-- User friends Modal -->
+	<div class="modal fade" id="my-friends-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+	 aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLongTitle">My friends</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<ul id="my-friends-data">
+
+
+					</ul>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div> <!-- END of Search friends Modal -->
+
+	<!-- side bar -->
+	<div class="sidebar-nav">
+		<a href="profile.html" title="Profile">
+			<img id="a-img" src="../imgs/user1.jpg" alt="User name" class="img-profile">
+		</a>
+		<h2 class="text-center">
+			<a id="a-full-name" href="profile.html" title="Profile">My User</a>
+		</h2>
+		<p class="text-center user-description hidden-xs">
+			<i id="i-about-me">user status / description</i>
+		</p>
+	</div>
+	<!-- profile container -->
+	<div class="profile-container container">
+		<div class="profile-info">
+		</div>
+
+	</div>
+	<!-- hidden container for templates -->
+	<div id="hidden-container" class="container profile-container">
+		<!-- edit profile -->
+		<div id="edit-profile">
+			<br>
+			<div class="input-group">
+				<div class="input-group-prepend">
+					<span class="input-group-text">First and last name</span>
+				</div>
+				<input id="input-fname" type="text" aria-label="First name" class="form-control">
+				<input id="input-lname" type="text" aria-label="Last name" class="form-control">
+			</div>
+			<br>
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<span class="input-group-text" id="inputGroupFileAddon01">choose profile pic</span>
+				</div>
+				<div class="custom-file">
+					<input id="input-pic" type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+					<label class="custom-file-label" for="inputGroupFile01">Choose photo</label>
+				</div>
+			</div>
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<span class="input-group-text" id="inputGroup-sizing-default">Tell something about you</span>
+				</div>
+				<input id="input-info" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+			</div>
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<span class="input-group-text" id="inputGroup-sizing-default">DOB</span>
+				</div>
+				<input id="input-dob" type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+			</div>
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<label class="input-group-text" for="inputGroupSelect01">Gender</label>
+				</div>
+				<select id="input-gender" class="custom-select">
+					<option selected>Not interested</option>
+					<option value="Male">Male</option>
+					<option value="Female">Female</option>
+				</select>
+			</div>
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<label class="input-group-text" for="inputGroupSelect01">Privacy</label>
+				</div>
+				<select id="input-privacy" class="custom-select">
+					<option selected value="public">Public</option>
+					<option value="friends">Friends only</option>
+					<option value="private">Private</option>
+				</select>
+			</div>
+			<button id="update-btn" type="button" class="btn btn-primary">Done</button>
+			<button id="cancel-btn" type="button" class="btn btn-secondary">Cancel</button>
+			<!-- Button trigger modal -->
+			<button style="float: right;" type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+				Delete account
+			</button>
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+			 aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">Enter password to delete account</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<input id="input-delete-acc" type="password">
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+							<button id="delete-btn" type="button" class="btn btn-danger">Confirm</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- show my profile -->
+		<div id="show-profile">
+			<div class="card">
+				<img id="card-img" class="card-img-top" src="../imgs/user1.jpg" alt="Card image cap">
+				<div class="card-body">
+					<h3>First Name: <span id="fname-span">sasa</span></h3>
+					<h3>Last Name: <span id="lname-span">sasa</span></h3>
+					<h3>DOB: <span id="dob-span">sasa</span></h3>
+					<h3>Gender: <span id="gender-span">sasa</span></h3>
+					<h3>About me: <span id="info-span">sasa</span></h3>
+					<button id="edit-btn" type="button" class="btn btn-primary">Edit</button>
+					<button id="my-friends-btn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#my-friends-modal">
+						Show friends
+					</button>
+				</div>
+			</div>
+		</div>
+		<!-- other profile -->
+		<div id="show-other-profile">
+			<div class="card">
+				<img id="card-img" class="card-img-top" src="../imgs/user1.jpg" alt="Card image cap">
+				<div class="card-body">
+					<h3>First Name: <span id="fname-span">sasa</span></h3>
+					<h3>Last Name: <span id="lname-span">sasa</span></h3>
+					<h3>DOB: <span id="dob-span">sasa</span></h3>
+					<h3>Gender: <span id="gender-span">sasa</span></h3>
+					<h3>About me: <span id="info-span">sasa</span></h3>
+					<button id="add-friend-btn" type="button" class="btn btn-primary">Add friend</button>
+					<button id="accept-friend-btn" type="button" class="btn btn-primary">Accept friend</button>
+					<button id="un-friend-btn" type="button" class="btn btn-primary">Unfriend</button>
+					<button id="other-friends-btn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#my-friends-modal">
+							Show friends
+						</button>
+				</div>
+			</div>
+		</div>
+		<!-- other profile -->
+		<div id="show-private-profile">
+				<div class="card">
+					<img id="card-img" class="card-img-top" src="../imgs/empty.png" alt="Card image cap">
+					<div class="card-body">
+						<h1>No premission</h1>
+						<h1>to see this profile</h1>
+						
+					</div>
+				</div>
+			</div>
+
+
+		<div id="post-template">
+			<li id="friend-template">
+				<img class="img-fluid mx-auto d-block float-left img-search-friends" alt="...">
+				<h2 id="full-name-search-friends">Full name</h2>
+				<br>
+			</li>
+			<!-- notification template -->
+			<li id="notification-template">
+				<img class="img-fluid mx-auto d-block float-left img-search-friends" alt="...">
+				<h4 id="full-name-notification">Full name</h2>
+					<h7 id="msg-notification">
+						</h3>
+						<br>
+			</li>
+		</div>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	 crossorigin="anonymous"></script> -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+	 crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+	 crossorigin="anonymous"></script>
+	<script src="../js/moduls.js"></script>
+	<script src="../js/profile.js"></script>
+
+</body>
+
+</html>
