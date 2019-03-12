@@ -1,3 +1,8 @@
+at this moment: only frontend part is done for now...
+                backend still need more work.
+               
+
+
 1. Display an endless feed/stream of items/posts. We will call it ?the main feed
 ? . Think about the main content that users are allowed to post. Links from youtube, links to music stream or a music file, video files, long text content, short text content, maybe link to other users, etc� Think about how you want to ?model
 ? the different types of user posts. 
